@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Spring Boot Bean自动装配 - Haven Tong&#039;s Memory Palace</title><meta description="Spring Boot Bean自动装配 1. 全局配置文件 修改Spring Boot自动配置的默认值，Spring Boot在底层自动加载   application.yml   application.properties   2. Bean自动装配原理 (1) Spring Boot启动时加载主配置类，开启了自动配置功能@EnableAutoConfiguration (2) @Enabl"><meta property="og:type" content="blog"><meta property="og:title" content="Spring Boot Bean自动装配"><meta property="og:url" content="http://yoursite.com/2019/10/29/Spring-Boot-Bean%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/"><meta property="og:site_name" content="Haven Tong&#039;s Memory Palace"><meta property="og:description" content="Spring Boot Bean自动装配 1. 全局配置文件 修改Spring Boot自动配置的默认值，Spring Boot在底层自动加载   application.yml   application.properties   2. Bean自动装配原理 (1) Spring Boot启动时加载主配置类，开启了自动配置功能@EnableAutoConfiguration (2) @Enabl"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://yoursite.com/img/og_image.png"><meta property="article:published_time" content="2019-10-29T15:25:15.000Z"><meta property="article:modified_time" content="2019-10-29T15:27:45.276Z"><meta property="article:author" content="Hanwen Tong"><meta property="article:tag" content="Spring Boot"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://github.com/HavenTong"},"headline":"HanwenTong's Memory Palace","image":["https://github.com/img/og_image.png"],"datePublished":"2019-10-29T15:25:15.000Z","dateModified":"2019-10-29T15:27:45.276Z","author":{"@type":"Person","name":"Hanwen Tong"},"description":"Spring Boot Bean自动装配 1. 全局配置文件 修改Spring Boot自动配置的默认值，Spring Boot在底层自动加载   application.yml   application.properties   2. Bean自动装配原理 (1) Spring Boot启动时加载主配置类，开启了自动配置功能@EnableAutoConfiguration (2) @Enabl"}</script><link rel="canonical" href="http://yoursite.com/2019/10/29/Spring-Boot-Bean%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/"><link rel="icon" href="/img/tom_avatar.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/monokai-sublime.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">HavenTong&#039;s Memory Palace</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-10-29T15:25:15.000Z" title="2019-10-29T15:25:15.000Z">2019-10-29</time><span class="level-item">5 分钟 读完 (大约 738 个字)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Spring Boot Bean自动装配</h1><div class="content"><h1><span id="spring-boot-bean自动装配">Spring Boot Bean自动装配</span></h1>
+<h2><span id="1-全局配置文件">1. 全局配置文件</span></h2>
+<p>修改Spring Boot自动配置的默认值，Spring Boot在底层自动加载</p>
+<ul>
+<li>
+<p>application.yml</p>
+</li>
+<li>
+<p>application.properties</p>
+</li>
+</ul>
+<h2><span id="2-bean自动装配原理">2. Bean自动装配原理</span></h2>
+<p>(1) Spring Boot启动时加载主配置类，开启了自动配置功能<code>@EnableAutoConfiguration</code></p>
+<p>(2) <code>@EnableAutoConfiguration</code></p>
+<p>​	作用： 将类路径下<code>META-INF/spring.factories</code>里面配置的所有<code>EnableAutoConfiguration</code>的值(自动装配类)加入到执行计划中</p>
+<p>(3) 每一个自动装配类进行自动配置功能</p>
+<h2><span id="3-yaml规则">3. YAML规则</span></h2>
+<p>(1) <strong>双引号</strong></p>
+<p>​	不会转义特殊字符，特殊字符或作为本身想要表达的意思</p>
+<p>​	<code>name: &quot;zhangsan \n lisi&quot;</code> 输出 <code>zhangsan 换行 lisi</code></p>
+<p>​	<strong>单引号</strong></p>
+<p>​	会转义特殊字符，特殊字符最终只是一个普通的字符串数据，如：</p>
+<p>​	<code>name: 'zhangsan \n lisi'</code> 输出 <code>zhangsan \n lisi</code></p>
+<p>(2) 支持松散的结构</p>
+<p>​	<code>family-name</code> = <code>familyName</code> = <code>family_name</code></p>
+<p>(3) 占位符</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$&#123;random.value&#125;</span></span><br><span class="line"><span class="string">$&#123;random.int&#125;</span></span><br><span class="line"><span class="string">$&#123;random.long&#125;</span></span><br><span class="line"><span class="string">$&#123;random.int(10)&#125;</span></span><br><span class="line"><span class="string">$&#123;random.int[1024,</span> <span class="number">65536</span><span class="string">]&#125;</span></span><br><span class="line"><span class="string">$&#123;xxxx.yyyy:</span> <span class="string">默认值&#125;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="4-获取自定义配置">4. 获取自定义配置</span></h2>
+<p>(1) <code>@Value(&quot;${}&quot;)</code></p>
+<p>​	实现了单个属性的注入</p>
+<p>(2) 对于复杂的数据结构，使用<code>@ConfigurationProperties</code>获取配置值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.haven.model.yaml;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> HavenTong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/10/29 5:44 下午</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"family"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Family</span> </span>&#123;</span><br><span class="line"><span class="comment">//    @Value("$&#123;family.family-name&#125;")</span></span><br><span class="line">    <span class="keyword">private</span> String familyName;</span><br><span class="line">    <span class="keyword">private</span> Father father;</span><br><span class="line">    <span class="keyword">private</span> Mother mother;</span><br><span class="line">    <span class="keyword">private</span> Child child;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(3) 两种注解区别</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">@ConfigurationProperties</th>
+<th style="text-align:center">@Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:center">批量注入属性</td>
+<td style="text-align:center">一个个指定</td>
+</tr>
+<tr>
+<td style="text-align:center">松散语法绑定</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+<tr>
+<td style="text-align:center">SpEL</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">复杂数据类型嵌套</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+<tr>
+<td style="text-align:center">JSR303数据校验</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="5-配置文件注入值数据校验">5. 配置文件注入值数据校验</span></h2>
+<p>(1) 在需要校验的属性装配类上加<code>@Validated</code>注解</p>
+<p>(2) 数据校验注解列表</p>
+<p>(3) 若验证失败，会出现<code>BindValidationException</code>异常</p>
+<h2><span id="6-profile不同环境下不同配置">6. Profile不同环境下不同配置</span></h2>
+<p><strong>优先级：</strong> 外部大于内部，特指大于泛指</p>
+<ul>
+<li>application.yml 全局配置文件</li>
+<li>application-dev.yml 开发环境配置文件</li>
+<li>application-test.yml 测试环境配置文件</li>
+<li>Application-prod.yml 生产环境配置文件</li>
+</ul>
+<p>(1) 配置application.yml</p>
+<p>设置<code>spring.profiles.active</code>指定使用哪一个配置文件。</p>
+<p>优先级以下面的dev/test/prod yml为优先</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span></span><br><span class="line"><span class="attr">    active:</span> <span class="string">dev</span></span><br></pre></td></tr></table></figure>
+<p>(2) 通过命令行启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar SpringBoot01HelloWorld-1.0-SNAPSHOT.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
+<p>(3) IDEA设置Program Arguments</p>
+<p>​	(a) Edit Configuration --&gt; Environment --&gt; Program Argument</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
+<p>​	(b) Edit Configuration --&gt; Environment --&gt; VM options</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Dspring.profiles.active=dev</span><br></pre></td></tr></table></figure>
+<h2><span id="7-项目内部配置文件加载位置">7. 项目内部配置文件加载位置</span></h2>
+<p>spring boot会扫描以下位置的application.properties / application.yml文件作为spring boot的默认配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-file:./config/</span><br><span class="line">-file:./</span><br><span class="line">-classpath:/config/</span><br><span class="line">-classpath:./</span><br></pre></td></tr></table></figure>
+<p>以上优先级从高到低，所有位置的文件都会被加载；高优先级会覆盖低优先级</p>
+<h2><span id="8-配置文件敏感字段加密">8. 配置文件敏感字段加密</span></h2>
+<p>(1) 与spring boot整合</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.ulisesbocchio<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jasypt-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>(2) 需要加密的地方，使用<code>ENC()</code>进行包裹处理</p>
+<p>(3) 在配置文件中设置密钥</p>
+</div><div class="article-tags size-small is-uppercase mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Spring-Boot/">Spring Boot</a></div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay.JPG" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/wechat.JPG" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/10/31/Spring-Boot-JDBC/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Spring Boot-JDBC</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/10/29/SpringBoot-RESTful%E6%8E%A5%E5%8F%A3/"><span class="level-item">SpringBoot RESTful接口</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'http://yoursite.com/2019/10/29/Spring-Boot-Bean%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/';
+            this.page.identifier = '2019/10/29/Spring-Boot-Bean自动装配/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'HavenTong' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><!--!--><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">HavenTong&#039;s Memory Palace</a><p class="size-small"><span>&copy; 2021 Haven Tong</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'http://yoursite.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
