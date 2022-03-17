@@ -5,8 +5,17 @@
     <link>https://haventong.github.io/post/</link>
     <description>Recent content in Posts on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 17 Mar 2022 20:00:10 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <language>cn-zh</language>
+    <lastBuildDate>Thu, 17 Mar 2022 20:22:31 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot新建项目</title>
+      <link>https://haventong.github.io/post/springboot%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Thu, 17 Mar 2022 20:22:31 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/springboot%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE/</guid>
+      <description>SpringBoot HelloWorld 一个功能： 浏览器发送一个hello请求，浏览器接受请求并处理，响应hello字符串 1. 创建一个maven工程(jar) 2. 导入SpringB</description>
+    </item>
+    
     <item>
       <title>STL笔记</title>
       <link>https://haventong.github.io/post/stl%E7%AC%94%E8%AE%B0/</link>
