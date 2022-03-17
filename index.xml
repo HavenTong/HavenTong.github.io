@@ -6,7 +6,16 @@
     <description>Recent content on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Mar 2022 12:01:21 +0800</lastBuildDate><atom:link href="https://haventong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Mar 2022 20:00:10 +0800</lastBuildDate><atom:link href="https://haventong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>STL笔记</title>
+      <link>https://haventong.github.io/post/stl%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 17 Mar 2022 20:00:10 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/stl%E7%AC%94%E8%AE%B0/</guid>
+      <description>STL容器共性 STL容器所提供的都是值寓意，而非引用寓意，也就是说当我们向容器插入元素的时候，容器内部实施了拷贝动作，将我们要插入的元素再另</description>
+    </item>
+    
     <item>
       <title>My Second Post</title>
       <link>https://haventong.github.io/post/my-second-post/</link>
