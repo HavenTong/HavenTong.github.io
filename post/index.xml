@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Mar 2022 22:41:09 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 00:34:51 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot JDBC</title>
+      <link>https://haventong.github.io/post/springboot-jdbc/</link>
+      <pubDate>Fri, 18 Mar 2022 00:34:51 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/springboot-jdbc/</guid>
+      <description>Spring Boot &amp;amp; JDBC 1. Spring Boot整合JDBC操作数据库 JDBC操作数据库流程 加载数据库驱动 建立数据库连接 创建数据库操作对象 定义操作的SQL语句 执行数据库</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot Bean自动装配</title>
+      <link>https://haventong.github.io/post/springboot-bean%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/</link>
+      <pubDate>Thu, 17 Mar 2022 23:40:18 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/springboot-bean%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/</guid>
+      <description>Spring Boot Bean自动装配 1. 全局配置文件 修改Spring Boot自动配置的默认值，Spring Boot在底层自动加载 application.yml application.properties 2. Bean自动装配原理 (1) Spring</description>
+    </item>
+    
     <item>
       <title>SpringBoot Restful接口</title>
       <link>https://haventong.github.io/post/springboot-restful%E6%8E%A5%E5%8F%A3/</link>
