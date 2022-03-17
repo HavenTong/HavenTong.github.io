@@ -22,7 +22,7 @@
       <pubDate>Thu, 17 Mar 2022 10:29:17 +0800</pubDate>
       
       <guid>https://haventong.github.io/post/my-first-post/</guid>
-      <description>Header 1 ✌️ 测试中文是否可用 This is my first post. Test inline code print(&amp;quot;hello world&amp;quot;) 下面主要介绍模型定义 $\mathcal{G} = (\mathcal{V},\mathcal{E},\mathcal{R})$ $$ \tilde{X} = {x_1, x_2, &amp;hellip;, x_3} $$ $$ E = mc^2 $$ # include&amp;lt;iostream&amp;gt; # include&amp;lt;cstdio&amp;gt; int main() { printf(&amp;#34;Hello world\n&amp;#34;); } Header 2 🧑‍🚀 this is header 2 Header 3 🎇</description>
+      <description>Header 1 ✌️ 测试中文是否可用 This is my first post. Test inline code print(&amp;quot;hello world&amp;quot;) 下面主要介绍模型定义 $\mathcal{G} = (\mathcal{V},\mathcal{E},\mathcal{R})$ $$ \tilde{X} = {x_1, x_2, &amp;hellip;, x_3} $$ $$ E = mc^2 $$ 1 2 3 4 5 6 # include&amp;lt;iostream&amp;gt; # include&amp;lt;cstdio&amp;gt; int main() { printf(&amp;#34;Hello world\n&amp;#34;); } Header 2 🧑‍🚀 this</description>
     </item>
     
     
