@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>SpringBoot IDEA工具 | Hanwen Tong</title>
-<meta name="keywords" content="" />
+<meta name="keywords" content="Spring Boot" />
 <meta name="description" content="SpringBoot with IDEA 插件 lombok IDEA中下载后 在pom.xml文件中引入依赖 1 2 3 4 5 &lt;dependency&gt; &lt;groupId&gt;org.projectlombok&lt;/groupId&gt; &lt;artifactId&gt;lombok&lt;/artifactId&gt; &lt;optional&gt;true&lt;/optional&gt; &lt;/dependency&gt; 常用注解 1 2 3 4 5 @Builder @Data @AllArgsConstructor @NoArgsConstructor ... GsonFormat 可以快速的将JSON转换为实体类">
 <meta name="author" content="Hanwen Tong">
 <link rel="canonical" href="https://haventong.github.io/post/springboot-idea%E5%B7%A5%E5%85%B7/" />
@@ -129,7 +129,7 @@ if (!doNotTrack) {
   "name": "SpringBoot IDEA工具",
   "description": "SpringBoot with IDEA 插件 lombok IDEA中下载后 在pom.xml文件中引入依赖 1 2 3 4 5 \u0026lt;dependency\u0026gt; \u0026lt;groupId\u0026gt;org.projectlombok\u0026lt;/groupId\u0026gt; \u0026lt;artifactId\u0026gt;lombok\u0026lt;/artifactId\u0026gt; \u0026lt;optional\u0026gt;true\u0026lt;/optional\u0026gt; \u0026lt;/dependency\u0026gt; 常用注解 1 2 3 4 5 @Builder @Data @AllArgsConstructor @NoArgsConstructor ... GsonFormat 可以快速的将JSON转换为实体类",
   "keywords": [
-    
+    "Spring Boot"
   ],
   "articleBody": "SpringBoot with IDEA 插件 lombok\n  IDEA中下载后\n  在pom.xml文件中引入依赖\n1 2 3 4 5   org.projectlombok lombok true      常用注解\n1 2 3 4 5  @Builder @Data @AllArgsConstructor @NoArgsConstructor ...     GsonFormat\n 可以快速的将JSON转换为实体类 shortcut option + s  热部署   pom文件中引入依赖\n1 2 3 4 5   org.springframework.boot spring-boot-devtools true      pom文件中引入依赖\n1 2 3 4 5 6 7 8 9 10 11     org.springframework.boot spring-boot-maven-plugin  true         Preferences – Compiler – Build project automatically ✅\n  cmd + option + shift + / – registry – compiler.automake.allow.when.app.running – ✅\n  配置完成后，修改项目文件后会自动build\n  ",
   "wordCount" : "171",
@@ -370,7 +370,15 @@ if (!doNotTrack) {
   </div>
 
   <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://haventong.github.io/tags/spring-boot/">Spring Boot</a></li>
+    </ul>
 <nav class="paginav">
+  <a class="prev" href="https://haventong.github.io/post/springboot-restful%E6%8E%A5%E5%8F%A3/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>SpringBoot Restful接口</span>
+  </a>
   <a class="next" href="https://haventong.github.io/post/mongodb%E5%9F%BA%E7%A1%80/">
     <span class="title">Next Page »</span>
     <br>
@@ -381,7 +389,7 @@ if (!doNotTrack) {
 
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share SpringBoot IDEA工具 on twitter"
-        href="https://twitter.com/intent/tweet/?text=SpringBoot%20IDEA%e5%b7%a5%e5%85%b7&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot-idea%25E5%25B7%25A5%25E5%2585%25B7%2f&amp;hashtags=">
+        href="https://twitter.com/intent/tweet/?text=SpringBoot%20IDEA%e5%b7%a5%e5%85%b7&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot-idea%25E5%25B7%25A5%25E5%2585%25B7%2f&amp;hashtags=SpringBoot">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
