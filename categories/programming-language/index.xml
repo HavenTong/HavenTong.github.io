@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Programming Language on Hanwen Tong</title>
+    <link>https://haventong.github.io/categories/programming-language/</link>
+    <description>Recent content in Programming Language on Hanwen Tong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Mar 2022 00:43:24 +0800</lastBuildDate><atom:link href="https://haventong.github.io/categories/programming-language/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; Priority Queue</title>
+      <link>https://haventong.github.io/post/c&#43;&#43;-priority-queue/</link>
+      <pubDate>Fri, 18 Mar 2022 00:43:24 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/c&#43;&#43;-priority-queue/</guid>
+      <description>C++-priority_queue C++ STL-priority_queue 用法 priority_queue存在于头文件&amp;lt;queue&amp;gt;中，以下代码解释了该容器如何使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
+    </item>
+    
+  </channel>
+</rss>
