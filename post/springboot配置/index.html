@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>SpringBoot配置 | Hanwen Tong</title>
+<meta name="keywords" content="Spring Boot" />
+<meta name="description" content="Spring Boot配置 1. 标记语言 以前的配置文件：xxx.xml YAML: 以数据为中心，比json, xml更适合作配置文件，实例如下 1 2 server:port:8081 XML: 1 2 3 &lt;server&gt; &lt;port&gt;8081&lt;/port&gt; &lt;/server&gt; 2. YA">
+<meta name="author" content="Hanwen Tong">
+<link rel="canonical" href="https://haventong.github.io/post/springboot%E9%85%8D%E7%BD%AE/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://haventong.github.io/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://haventong.github.io/img/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://haventong.github.io/img/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://haventong.github.io/img/apple-touch-icon.png">
+<link rel="mask-icon" href="https://haventong.github.io/img/android-chrome-192x192.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="SpringBoot配置" />
+<meta property="og:description" content="Spring Boot配置 1. 标记语言 以前的配置文件：xxx.xml YAML: 以数据为中心，比json, xml更适合作配置文件，实例如下 1 2 server:port:8081 XML: 1 2 3 &lt;server&gt; &lt;port&gt;8081&lt;/port&gt; &lt;/server&gt; 2. YA" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://haventong.github.io/post/springboot%E9%85%8D%E7%BD%AE/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-17T21:04:21&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-17T21:04:21&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SpringBoot配置"/>
+<meta name="twitter:description" content="Spring Boot配置 1. 标记语言 以前的配置文件：xxx.xml YAML: 以数据为中心，比json, xml更适合作配置文件，实例如下 1 2 server:port:8081 XML: 1 2 3 &lt;server&gt; &lt;port&gt;8081&lt;/port&gt; &lt;/server&gt; 2. YA"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://haventong.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "SpringBoot配置",
+      "item": "https://haventong.github.io/post/springboot%E9%85%8D%E7%BD%AE/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SpringBoot配置",
+  "name": "SpringBoot配置",
+  "description": "Spring Boot配置 1. 标记语言 以前的配置文件：xxx.xml YAML: 以数据为中心，比json, xml更适合作配置文件，实例如下 1 2 server:port:8081 XML: 1 2 3 \u0026lt;server\u0026gt; \u0026lt;port\u0026gt;8081\u0026lt;/port\u0026gt; \u0026lt;/server\u0026gt; 2. YA",
+  "keywords": [
+    "Spring Boot"
+  ],
+  "articleBody": "Spring Boot配置 1. 标记语言   以前的配置文件：xxx.xml\n  YAML: 以数据为中心，比json, xml更适合作配置文件，实例如下\n1 2  server:port:8081  XML:\n1 2 3   8081      2. YAML语法 (1) 基本语法 K :(空格)V — 表示一对键值对\n以空格的缩进来控制层级关系，左对齐的一列数据都是同一层级\n1 2 3  server:port:8080path:/hello  属性和值大小写敏感\n(2) 值的写法   字面量：普通的值(数字，字符串，布尔)\nk: v: 字面量直接来写\n​\t字符串默认不需要加上单引号或双引号\n​\t双引号：不会转义字符串里的特殊字符；特殊字符会作为本身想表示的意思\n​\tname: \"zhangsan \\n lisi\"输出zhangsan 换行 lisi\n​\t单引号：会转义特殊字符，特殊字符最终只是一个普通的字符串\n​\t name: \"zhangsan \\n lisi\"输出zhangsan \\n lisi\n  对象(属性和值): 键值对\nk: v: 对象还是k: v的模式\n1 2 3  friends:lastName:zhangsanage:20  行内写法：\n1  friends:{lastName: zhangsan, age:18}    数组(List, Set)\n用- 值表示数组中的一个元素\n1 2 3 4  pets:- cat- dog- pig  行内写法\n1  pets:[cat, dog, pig ]  3. 配置文件值注入 配置文件：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  server:port:8081person:lastName:zhangsanage:18boss:falsebirthDay:2017/12/12maps:{k1: v1, k2:12}list:- lisi- zhaoliudog:name:myDogage:2  javaBean:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  /* * 将配置文件中配置的每一个属性的值，映射到这个组件中 * @ConfigurationProperties：告诉Spring Boot将本类中的所有属性和配置文件中相关的配置进行绑定 * prefix = \"person\"：配置文件中哪个下面的所有属性进行一一映射 * * 只有这个组件是容器中的组件，才能使用容器提供的@ConfigurationProperties功能 * */ @Component @ConfigurationProperties(prefix = \"person\") public class Person { private String lastName; private Integer age; private Boolean boss; private Date birthDay; private Dog dog; private MapString, Object maps; private ListObject list;   我们可以导入配置文件处理器，以后配置文件进行绑定就可以有提示：\n1 2 3 4 5 6    org.springframework.boot spring-boot-configuration-processor true    @ConfigurationProperties获取值和@Value获取值的区别     @ConfigurationProperties @Value     功能 批量注入配置文件中的属性 一个一个指定   松散绑定(松散语法) 支持松散语法绑定 不支持松散语法绑定   SpEL 不支持 支持   JSR30数据校验 支持 不支持   复杂类型封装 支持 不支持    配置文件yml和properties都可以获取值\n如果只是在某个业务逻辑中，需要获取一下某个配置文件中的某项值，使用@Value\n如果说，我们专门编写了一个javaBean来和配置文件进行映射，我们就直接使用@ConfigurationProperties\n配置文件注入值数据校验 1 2 3 4 5 6 7  @Component @ConfigurationProperties(prefix = \"person\") @Validated public class Person { // lastName必须为邮箱格式  @Email private String lastName;     4. @PropertySource\u0026ImportResource @PropertySource：加载指定的配置文件\n1 2 3 4 5 6 7 8 9  /* * @ConfigurationProperties(prefix = \"person\") * 默认从全局配置文件中获取值 * */ @PropertySource(value = {\"classpath:person.properties\"}) @Component @ConfigurationProperties(prefix = \"person\") //@Validated public class Person {   @ImportResource：导入Spring的配置文件，让配置文件中的内容生效\nSpring Boot里面没有Spring的配置文件，我们自己编写的配置文件，也不能自动识别；\n想让Spring的配置文件生效，加载进来；\n需要将@ImportResource标注在一个配置类上\n1 2 3 4 5 6 7 8 9  @ImportResource(locations = {\"classpath:beans.xml\"}) @SpringBootApplication public class SpringBoot01HelloworldQuickApplication { public static void main(String[] args) { SpringApplication.run(SpringBoot01HelloworldQuickApplication.class, args); } }   导入Spring的配置文件，让其生效\n但不希望编写Spring的配置文件\n1 2 3 4 5 6 7 8    xmlns=\"http://www.springframework.org/schema/beans\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd\"  class=\"com.haven.springboot.sevice.HelloService\" id=\"helloService\"     SpringBoot推荐给容器中添加组件的方式： 推荐使用全注解方式\n 配置类===Spring配置文件 使用@Bean给容器中添加组件  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  /* * @Configuration：告诉Spring Boot这是一个配置类 * 就是来替代之前Spring的配置文件 * * 之前在Spring配置文件中用  标签添加组件 * */ @Configuration public class MyAppConfig { // 将方法的返回值添加到容器中，容器中这个组件默认的id就是方法名  @Bean public HelloService helloService02(){ System.out.println(\"配置类@Bean给容器中添加组件\"); return new HelloService(); } }   5. 配置文件占位符 (1) 随机数 1 2  ${random.value}, ${random.int}, ${random.long} ${random.int(10)}, ${random.int[1024, 65536]}   (2) 占位符获取之前配置的值，如果没有可以使用:指定默认值 1 2 3 4 5 6 7 8 9  person.last-name=张三${random.uuid} person.age=${random.int} person.birth-day=2017/12/15 person.boss=false person.maps.k1=v1 person.maps.k2=14 person.list=a,b,c person.dog.name=${person.hello:hello}_dog person.dog.age=15   6. Profile (1) 多Profile文件 我们在主配置文件编写时，文件名可以是application-{profile}.properties/yml\n默认使用application.properties的配置\n(2)激活指定profile   在配置文件中指定spring.profiles.active=dev\n  命令行\n1  --spring.profiles.active=dev   Edit Configuration—Program arguments\n  (3) yml多文档块 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  server:port:8081spring:profiles:active:prod---server:port:8083spring:profiles:dev---server:port:8084spring:profiles:prod#指定属于那个环境  7. 配置文件加载位置 优先级由高到低，高优先级会覆盖低优先级的配置：\n ./config/ ./ ./src/main/resources/config/ ./src/main/resources/  SpringBoot会从这四个位置全部加载主配置文件：互补配置\n可以通过spring.config.location来改变默认的配置文件的位置\n项目打包好后，可以使用命令行参数--spring.config.location=?的形式，启动项目的时候来指定配置文件的新位置；指定配置文件和默认加载的配置文件共同起作用，形成互补配置\n8. 自动配置原理 配置文件能配置的属性参照 https://docs.spring.io/spring-boot/docs/2.1.8.RELEASE/reference/html/common-application-properties.html\n自动配置原理   SpringBoot启动时加载主配置类，开启了自动配置功能@EnableAutoConfiguration\n  @EnableAutoConfiguration原理\n  利用AutoConfigurationImportSelector给容器中导入一些组件\n  查看AutoConfigurationImportSelector中的selectImports()方法\n  1 2  // 获取候选的配置 ListString configurations = this.getCandidateConfigurations(annotationMetadata, attributes);   1 2  // getCandidateConfigurations() ListString configurations = SpringFactoriesLoader.loadFactoryNames(this.getSpringFactoriesLoaderFactoryClass(), this.getBeanClassLoader());   1 2 3 4  SpringFactoriesLoader.loadFactoryNames() // 扫描所有jar包类路径下的\tMETA-INF/spring.factories // 把扫描到的文件的内容包装成properties对象 // 从properties获取到EnableAutoConfiguration.class的类名对应的值，然后把他们添加在容器中   将类路径下 META-INF/spring.factories里面配置的所有EnableAutoConfiguration的值加到了容器中\n每一个这样的 xxxAutoConfiguration类都是容器中的一个组件，都加入到容器中，用他们做自动配置。\n  每一个自动配置类进行自动配置功能\n  HttpEncodingAutoConfiguration(HTTP编码自动配置)为例，介绍自动配置原理\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37  @Configuration\t// 表示是一个配置类，可以给容器中添加组件 @EnableConfigurationProperties({HttpProperties.class})\t// 启用指定类的ConfigurationProperties功能；将配置文件中对应的值和HttpProperties绑定起来，并把HttpProperties加入到ioc容器中  @ConditionalOnWebApplication( type = Type.SERVLET )\t// Spring底层@Conditional注解，根据不同的条件，如果满足指定的条件，整个配置类里面的配置就会生效； // 判断当前应用是否是web应用，如果是，则当前配置类生效；  // 判断当前项目有没有这个类 // CharacterEncodingFilter：SpringMVC中进行乱码解决的过滤器 @ConditionalOnClass({CharacterEncodingFilter.class}) // 判断配置文件中是否存在某个配置 spring.http.encoding;如果不存在，判断也是成立的 // 即使配置文件中不配置spring.http.encoding=enabled，也是默认生效的 @ConditionalOnProperty( prefix = \"spring.http.encoding\", value = {\"enabled\"}, matchIfMissing = true ) public class HttpEncodingAutoConfiguration { // 他已经和SpringBoot的配置文件映射了  private final Encoding properties; // 只有一个有参构造器的情况下，参数的值会从容器中拿  public HttpEncodingAutoConfiguration(HttpProperties properties) { this.properties = properties.getEncoding(); } @Bean\t// 给容器中添加一个组件，这个组件的某些值需要从properties中获取  @ConditionalOnMissingBean public CharacterEncodingFilter characterEncodingFilter() { CharacterEncodingFilter filter = new OrderedCharacterEncodingFilter(); filter.setEncoding(this.properties.getCharset().name()); filter.setForceRequestEncoding(this.properties.shouldForce(org.springframework.boot.autoconfigure.http.HttpProperties.Encoding.Type.REQUEST)); filter.setForceResponseEncoding(this.properties.shouldForce(org.springframework.boot.autoconfigure.http.HttpProperties.Encoding.Type.RESPONSE)); return filter; }   根据当前不同的条件判断，决定这个配置类是否生效。\n一旦配置类生效，这个配置类就会个容器中添加各种组件，这些组件是从对应的properties类中获取的，而这些类里面的每一个属性又是和配置文件绑定的。\n  所有在配置文件中能配置的属性，都是在xxxProperties类中封装着；配置文件能配置什么，就可以参照某个功能对应的属性类\n1 2 3 4  @ConfigurationProperties(\tprefix = \"spring.http\" )\t// 从配置文件中获取指定的值和bean的属性进行绑定 public class HttpProperties {     精髓   SpringBoot启动会加载大量的配置类\n  我们看我们的功能有没有SpringBoot默认写好的自动配置类；\n  再看这个自动配置类中到底配置了哪些组件（只要我们要用的组件有，我们就不需要再来配置）\n  给容器中自动配置类添加组件时，会从propertie中获取某些属性，我们就可以在配置文件中指定这些属性的值\nxxxAutoConfiguration：自动配置类，给容器中添加组件\nxxxProperties：封装配置文件中相关属性\n  9. 细节 1. @Conditional派生注解 作用：必须是@Conditional指定的条件成立，才给容器中添加组件，配置类里面的所有内容才生效\n自动配置类必须在一定的条件下才能生效\n通过\n1  debug=true   让控制台打印自动配置报告，这样我们就可以很方便地知道哪些自动配置类生效\n分为Positive matches和Negative matches\n",
+  "wordCount" : "3773",
+  "inLanguage": "en",
+  "datePublished": "2022-03-17T21:04:21+08:00",
+  "dateModified": "2022-03-17T21:04:21+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Hanwen Tong"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://haventong.github.io/post/springboot%E9%85%8D%E7%BD%AE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hanwen Tong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://haventong.github.io/img/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://haventong.github.io" accesskey="h" title="Hanwen Tong (Alt + H)">Hanwen Tong</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://haventong.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://haventong.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://haventong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://haventong.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://haventong.github.io">Home</a>&nbsp;»&nbsp;<a href="https://haventong.github.io/post/">Posts</a></div>
+    <h1 class="post-title">
+      SpringBoot配置
+    </h1>
+    <div class="post-meta"><span title='2022-03-17 21:04:21 +0800 CST'>March 17, 2022</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Hanwen Tong
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#spring-boot%e9%85%8d%e7%bd%ae" aria-label="Spring Boot配置">Spring Boot配置</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%a0%87%e8%ae%b0%e8%af%ad%e8%a8%80" aria-label="1. 标记语言">1. 标记语言</a></li>
+                <li>
+                    <a href="#2-yaml%e8%af%ad%e6%b3%95" aria-label="2. YAML语法">2. YAML语法</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95" aria-label="(1) 基本语法">(1) 基本语法</a></li>
+                <li>
+                    <a href="#2-%e5%80%bc%e7%9a%84%e5%86%99%e6%b3%95" aria-label="(2) 值的写法">(2) 值的写法</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e5%80%bc%e6%b3%a8%e5%85%a5" aria-label="3. 配置文件值注入">3. 配置文件值注入</a><ul>
+                        
+                <li>
+                    <a href="#configurationproperties%e8%8e%b7%e5%8f%96%e5%80%bc%e5%92%8cvalue%e8%8e%b7%e5%8f%96%e5%80%bc%e7%9a%84%e5%8c%ba%e5%88%ab" aria-label="@ConfigurationProperties获取值和@Value获取值的区别"><code>@ConfigurationProperties</code>获取值和<code>@Value</code>获取值的区别</a></li>
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e6%b3%a8%e5%85%a5%e5%80%bc%e6%95%b0%e6%8d%ae%e6%a0%a1%e9%aa%8c" aria-label="配置文件注入值数据校验">配置文件注入值数据校验</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-propertysourceimportresource" aria-label="4. @PropertySource&amp;amp;ImportResource">4. <code>@PropertySource</code>&amp;<code>ImportResource</code></a></li>
+                <li>
+                    <a href="#5-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e5%8d%a0%e4%bd%8d%e7%ac%a6" aria-label="5. 配置文件占位符">5. 配置文件占位符</a><ul>
+                        
+                <li>
+                    <a href="#1-%e9%9a%8f%e6%9c%ba%e6%95%b0" aria-label="(1) 随机数">(1) 随机数</a></li>
+                <li>
+                    <a href="#2-%e5%8d%a0%e4%bd%8d%e7%ac%a6%e8%8e%b7%e5%8f%96%e4%b9%8b%e5%89%8d%e9%85%8d%e7%bd%ae%e7%9a%84%e5%80%bc%e5%a6%82%e6%9e%9c%e6%b2%a1%e6%9c%89%e5%8f%af%e4%bb%a5%e4%bd%bf%e7%94%a8%e6%8c%87%e5%ae%9a%e9%bb%98%e8%ae%a4%e5%80%bc" aria-label="(2) 占位符获取之前配置的值，如果没有可以使用:指定默认值">(2) 占位符获取之前配置的值，如果没有可以使用<code>:</code>指定默认值</a></li></ul>
+                </li>
+                <li>
+                    <a href="#6-profile" aria-label="6. Profile">6. Profile</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%a4%9aprofile%e6%96%87%e4%bb%b6" aria-label="(1) 多Profile文件">(1) 多Profile文件</a></li>
+                <li>
+                    <a href="#2%e6%bf%80%e6%b4%bb%e6%8c%87%e5%ae%9aprofile" aria-label="(2)激活指定profile">(2)激活指定profile</a></li>
+                <li>
+                    <a href="#3-yml%e5%a4%9a%e6%96%87%e6%a1%a3%e5%9d%97" aria-label="(3) yml多文档块">(3) yml多文档块</a></li></ul>
+                </li>
+                <li>
+                    <a href="#7-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e5%8a%a0%e8%bd%bd%e4%bd%8d%e7%bd%ae" aria-label="7. 配置文件加载位置">7. 配置文件加载位置</a></li>
+                <li>
+                    <a href="#8-%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" aria-label="8. 自动配置原理">8. 自动配置原理</a><ul>
+                        
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e8%83%bd%e9%85%8d%e7%bd%ae%e7%9a%84%e5%b1%9e%e6%80%a7%e5%8f%82%e7%85%a7" aria-label="配置文件能配置的属性参照">配置文件能配置的属性参照</a></li>
+                <li>
+                    <a href="#%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" aria-label="自动配置原理">自动配置原理</a></li>
+                <li>
+                    <a href="#%e7%b2%be%e9%ab%93" aria-label="精髓">精髓</a></li></ul>
+                </li>
+                <li>
+                    <a href="#9-%e7%bb%86%e8%8a%82" aria-label="9. 细节">9. 细节</a><ul>
+                        
+                <li>
+                    <a href="#1-conditional%e6%b4%be%e7%94%9f%e6%b3%a8%e8%a7%a3" aria-label="1. @Conditional派生注解">1. @Conditional派生注解</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="spring-boot配置">Spring Boot配置<a hidden class="anchor" aria-hidden="true" href="#spring-boot配置">#</a></h1>
+<h2 id="1-标记语言">1. 标记语言<a hidden class="anchor" aria-hidden="true" href="#1-标记语言">#</a></h2>
+<ul>
+<li>
+<p>以前的配置文件：xxx.xml</p>
+</li>
+<li>
+<p>YAML: 以数据为中心，比json, xml更适合作配置文件，实例如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>XML:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;server&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;port&gt;</span>8081<span class="nt">&lt;/port&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/server&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="2-yaml语法">2. YAML语法<a hidden class="anchor" aria-hidden="true" href="#2-yaml语法">#</a></h2>
+<h3 id="1-基本语法">(1) 基本语法<a hidden class="anchor" aria-hidden="true" href="#1-基本语法">#</a></h3>
+<p><strong>K :(空格)V</strong> — 表示一对键值对</p>
+<p>以空格的缩进来控制层级关系，左对齐的一列数据都是同一层级</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/hello</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>属性和值大小写敏感</p>
+<h3 id="2-值的写法">(2) 值的写法<a hidden class="anchor" aria-hidden="true" href="#2-值的写法">#</a></h3>
+<ul>
+<li>
+<p>字面量：普通的值(数字，字符串，布尔)</p>
+<p>k: v: 字面量直接来写</p>
+<p>​		 字符串默认不需要加上单引号或双引号</p>
+<p>​		 双引号：不会转义字符串里的特殊字符；特殊字符会作为本身想表示的意思</p>
+<p>​		 					<code>name: &quot;zhangsan \n lisi&quot;</code>输出<code>zhangsan 换行 lisi</code></p>
+<p>​		 单引号：会转义特殊字符，特殊字符最终只是一个普通的字符串</p>
+<p>​							<code> name: &quot;zhangsan \n lisi&quot;</code>输出<code>zhangsan \n lisi</code></p>
+</li>
+<li>
+<p>对象(属性和值): 键值对</p>
+<p>k: v: 对象还是k: v的模式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">friends</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">lastName</span><span class="p">:</span><span class="w"> </span><span class="l">zhangsan</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>行内写法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">friends</span><span class="p">:</span><span class="w"> </span>{<span class="nt">lastName: zhangsan, age</span><span class="p">:</span><span class="w"> </span><span class="m">18</span>}<span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>数组(List, Set)</p>
+<p>用- 值表示数组中的一个元素</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">pets</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span>- <span class="l">cat</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span>- <span class="l">dog</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span>- <span class="l">pig</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>行内写法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">pets</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">cat, dog, pig ]</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-配置文件值注入">3. 配置文件值注入<a hidden class="anchor" aria-hidden="true" href="#3-配置文件值注入">#</a></h2>
+<p>配置文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">person</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">lastName</span><span class="p">:</span><span class="w"> </span><span class="l">zhangsan</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">18</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">boss</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">birthDay</span><span class="p">:</span><span class="w"> </span><span class="m">2017</span><span class="l">/12/12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">maps</span><span class="p">:</span><span class="w"> </span>{<span class="nt">k1: v1, k2</span><span class="p">:</span><span class="w"> </span><span class="m">12</span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">list</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">lisi</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">zhaoliu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dog</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">myDog</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>javaBean:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 将配置文件中配置的每一个属性的值，映射到这个组件中
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @ConfigurationProperties：告诉Spring Boot将本类中的所有属性和配置文件中相关的配置进行绑定
+</span></span></span><span class="line"><span class="cl"><span class="cm">* prefix = &#34;person&#34;：配置文件中哪个下面的所有属性进行一一映射
+</span></span></span><span class="line"><span class="cl"><span class="cm">*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 只有这个组件是容器中的组件，才能使用容器提供的@ConfigurationProperties功能
+</span></span></span><span class="line"><span class="cl"><span class="cm">* */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Component</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">&#34;person&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Boolean</span> <span class="n">boss</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Date</span> <span class="n">birthDay</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Dog</span> <span class="n">dog</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">maps</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们可以导入配置文件处理器，以后配置文件进行绑定就可以有提示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- 导入配置文件处理器，配置文件进行绑定就会有提示 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-configuration-processor<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="configurationproperties获取值和value获取值的区别"><code>@ConfigurationProperties</code>获取值和<code>@Value</code>获取值的区别<a hidden class="anchor" aria-hidden="true" href="#configurationproperties获取值和value获取值的区别">#</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"><code>@ConfigurationProperties</code></th>
+<th style="text-align:center"><code>@Value</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:center">批量注入配置文件中的属性</td>
+<td style="text-align:center">一个一个指定</td>
+</tr>
+<tr>
+<td style="text-align:center">松散绑定(松散语法)</td>
+<td style="text-align:center">支持松散语法绑定</td>
+<td style="text-align:center">不支持松散语法绑定</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SpEL</code></td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">支持</td>
+</tr>
+<tr>
+<td style="text-align:center">JSR30数据校验</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+<tr>
+<td style="text-align:center">复杂类型封装</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持</td>
+</tr>
+</tbody>
+</table>
+<p>配置文件<code>yml</code>和<code>properties</code>都可以获取值</p>
+<p><strong>如果只是在某个业务逻辑中，需要获取一下某个配置文件中的某项值，使用<code>@Value</code></strong></p>
+<p><strong>如果说，我们专门编写了一个javaBean来和配置文件进行映射，我们就直接使用<code>@ConfigurationProperties</code></strong></p>
+<h3 id="配置文件注入值数据校验">配置文件注入值数据校验<a hidden class="anchor" aria-hidden="true" href="#配置文件注入值数据校验">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">&#34;person&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Validated</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// lastName必须为邮箱格式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Email</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="4-propertysourceimportresource">4. <code>@PropertySource</code>&amp;<code>ImportResource</code><a hidden class="anchor" aria-hidden="true" href="#4-propertysourceimportresource">#</a></h2>
+<p><code>@PropertySource</code>：加载指定的配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @ConfigurationProperties(prefix = &#34;person&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 默认从全局配置文件中获取值
+</span></span></span><span class="line"><span class="cl"><span class="cm">* */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@PropertySource</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;classpath:person.properties&#34;</span><span class="o">})</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Component</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">&#34;person&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//@Validated
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>@ImportResource</code>：导入Spring的配置文件，让配置文件中的内容生效</p>
+<p>Spring Boot里面没有Spring的配置文件，我们自己编写的配置文件，也不能自动识别；</p>
+<p>想让Spring的配置文件生效，加载进来；</p>
+<p>需要将<code>@ImportResource</code>标注在一个配置类上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ImportResource</span><span class="o">(</span><span class="n">locations</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;classpath:beans.xml&#34;</span><span class="o">})</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringBoot01HelloworldQuickApplication</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">SpringBoot01HelloworldQuickApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>导入Spring的配置文件，让其生效</p>
+<p>但不希望编写Spring的配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;com.haven.springboot.sevice.HelloService&#34;</span> <span class="na">id=</span><span class="s">&#34;helloService&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/beans&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>SpringBoot推荐给容器中添加组件的方式：</strong> <strong>推荐使用全注解方式</strong></p>
+<ol>
+<li>配置类===Spring配置文件</li>
+<li>使用@Bean给容器中添加组件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @Configuration：告诉Spring Boot这是一个配置类
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 就是来替代之前Spring的配置文件
+</span></span></span><span class="line"><span class="cl"><span class="cm">*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 之前在Spring配置文件中用 &lt;bean&gt;&lt;/bean&gt; 标签添加组件
+</span></span></span><span class="line"><span class="cl"><span class="cm">* */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Configuration</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAppConfig</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 将方法的返回值添加到容器中，容器中这个组件默认的id就是方法名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Bean</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">HelloService</span> <span class="nf">helloService02</span><span class="o">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;配置类@Bean给容器中添加组件&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">HelloService</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="5-配置文件占位符">5. 配置文件占位符<a hidden class="anchor" aria-hidden="true" href="#5-配置文件占位符">#</a></h2>
+<h3 id="1-随机数">(1) 随机数<a hidden class="anchor" aria-hidden="true" href="#1-随机数">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">$</span><span class="o">{</span><span class="n">random</span><span class="o">.</span><span class="na">value</span><span class="o">},</span> <span class="n">$</span><span class="o">{</span><span class="n">random</span><span class="o">.</span><span class="na">int</span><span class="o">},</span> <span class="n">$</span><span class="o">{</span><span class="n">random</span><span class="o">.</span><span class="na">long</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">$</span><span class="o">{</span><span class="n">random</span><span class="o">.</span><span class="na">int</span><span class="o">(</span><span class="n">10</span><span class="o">)},</span> <span class="n">$</span><span class="o">{</span><span class="n">random</span><span class="o">.</span><span class="na">int</span><span class="o">[</span><span class="n">1024</span><span class="o">,</span> <span class="n">65536</span><span class="o">]}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-占位符获取之前配置的值如果没有可以使用指定默认值">(2) 占位符获取之前配置的值，如果没有可以使用<code>:</code>指定默认值<a hidden class="anchor" aria-hidden="true" href="#2-占位符获取之前配置的值如果没有可以使用指定默认值">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">person.last-name=张三${random.uuid}
+</span></span><span class="line"><span class="cl">person.age=${random.int}
+</span></span><span class="line"><span class="cl">person.birth-day=2017/12/15
+</span></span><span class="line"><span class="cl">person.boss=false
+</span></span><span class="line"><span class="cl">person.maps.k1=v1
+</span></span><span class="line"><span class="cl">person.maps.k2=14
+</span></span><span class="line"><span class="cl">person.list=a,b,c
+</span></span><span class="line"><span class="cl">person.dog.name=${person.hello:hello}_dog
+</span></span><span class="line"><span class="cl">person.dog.age=15
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="6-profile">6. Profile<a hidden class="anchor" aria-hidden="true" href="#6-profile">#</a></h2>
+<h3 id="1-多profile文件">(1) 多Profile文件<a hidden class="anchor" aria-hidden="true" href="#1-多profile文件">#</a></h3>
+<p>我们在主配置文件编写时，文件名可以是<code>application-{profile}.properties/yml</code></p>
+<p>默认使用application.properties的配置</p>
+<h3 id="2激活指定profile">(2)激活指定profile<a hidden class="anchor" aria-hidden="true" href="#2激活指定profile">#</a></h3>
+<ul>
+<li>
+<p>在配置文件中指定<code>spring.profiles.active=dev</code></p>
+</li>
+<li>
+<p>命令行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">--spring.profiles.active<span class="o">=</span>dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Edit Configuration—&gt;Program arguments</p>
+</li>
+</ul>
+<h3 id="3-yml多文档块">(3) yml多文档块<a hidden class="anchor" aria-hidden="true" href="#3-yml多文档块">#</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">profiles</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l">prod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8083</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">profiles</span><span class="p">:</span><span class="w"> </span><span class="l">dev</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8084</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">profiles</span><span class="p">:</span><span class="w"> </span><span class="l">prod</span><span class="w"> </span><span class="c">#指定属于那个环境</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="7-配置文件加载位置">7. 配置文件加载位置<a hidden class="anchor" aria-hidden="true" href="#7-配置文件加载位置">#</a></h2>
+<p>优先级由高到低，高优先级会覆盖低优先级的配置：</p>
+<ul>
+<li><code>./config/</code></li>
+<li><code>./</code></li>
+<li><code>./src/main/resources/config/</code></li>
+<li><code>./src/main/resources/</code></li>
+</ul>
+<p>SpringBoot会从这四个位置全部加载主配置文件：互补配置</p>
+<p>可以通过<code>spring.config.location</code>来改变默认的配置文件的位置</p>
+<p><strong>项目打包好后，可以使用命令行参数<code>--spring.config.location=?</code>的形式，启动项目的时候来指定配置文件的新位置；指定配置文件和默认加载的配置文件共同起作用，形成互补配置</strong></p>
+<h2 id="8-自动配置原理">8. 自动配置原理<a hidden class="anchor" aria-hidden="true" href="#8-自动配置原理">#</a></h2>
+<h3 id="配置文件能配置的属性参照">配置文件能配置的属性参照<a hidden class="anchor" aria-hidden="true" href="#配置文件能配置的属性参照">#</a></h3>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.1.8.RELEASE/reference/html/common-application-properties.html">https://docs.spring.io/spring-boot/docs/2.1.8.RELEASE/reference/html/common-application-properties.html</a></p>
+<h3 id="自动配置原理">自动配置原理<a hidden class="anchor" aria-hidden="true" href="#自动配置原理">#</a></h3>
+<ol>
+<li>
+<p>SpringBoot启动时加载主配置类，开启了自动配置功能<code>@EnableAutoConfiguration</code></p>
+</li>
+<li>
+<p><code>@EnableAutoConfiguration</code>原理</p>
+<ul>
+<li>
+<p>利用<code>AutoConfigurationImportSelector</code>给容器中导入一些组件</p>
+</li>
+<li>
+<p>查看<code>AutoConfigurationImportSelector</code>中的<code>selectImports()</code>方法</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 获取候选的配置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">configurations</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getCandidateConfigurations</span><span class="o">(</span><span class="n">annotationMetadata</span><span class="o">,</span> <span class="n">attributes</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// getCandidateConfigurations()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">configurations</span> <span class="o">=</span> <span class="n">SpringFactoriesLoader</span><span class="o">.</span><span class="na">loadFactoryNames</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getSpringFactoriesLoaderFactoryClass</span><span class="o">(),</span> <span class="k">this</span><span class="o">.</span><span class="na">getBeanClassLoader</span><span class="o">());</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">SpringFactoriesLoader</span><span class="o">.</span><span class="na">loadFactoryNames</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 扫描所有jar包类路径下的	META-INF/spring.factories
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 把扫描到的文件的内容包装成properties对象
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 从properties获取到EnableAutoConfiguration.class的类名对应的值，然后把他们添加在容器中
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>将类路径下 META-INF/spring.factories里面配置的所有EnableAutoConfiguration的值加到了容器中</strong></p>
+<p>每一个这样的 xxxAutoConfiguration类都是容器中的一个组件，都加入到容器中，用他们做自动配置。</p>
+</li>
+<li>
+<p>每一个自动配置类进行自动配置功能</p>
+</li>
+<li>
+<p><code>HttpEncodingAutoConfiguration</code>(HTTP编码自动配置)为例，介绍自动配置原理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span>	<span class="c1">// 表示是一个配置类，可以给容器中添加组件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@EnableConfigurationProperties</span><span class="o">({</span><span class="n">HttpProperties</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>	<span class="c1">// 启用指定类的ConfigurationProperties功能；将配置文件中对应的值和HttpProperties绑定起来，并把HttpProperties加入到ioc容器中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nd">@ConditionalOnWebApplication</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">type</span> <span class="o">=</span> <span class="n">Type</span><span class="o">.</span><span class="na">SERVLET</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span>	<span class="c1">// Spring底层@Conditional注解，根据不同的条件，如果满足指定的条件，整个配置类里面的配置就会生效；
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 判断当前应用是否是web应用，如果是，则当前配置类生效；
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 判断当前项目有没有这个类
+</span></span></span><span class="line"><span class="cl"><span class="c1">// CharacterEncodingFilter：SpringMVC中进行乱码解决的过滤器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@ConditionalOnClass</span><span class="o">({</span><span class="n">CharacterEncodingFilter</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 判断配置文件中是否存在某个配置 spring.http.encoding;如果不存在，判断也是成立的
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 即使配置文件中不配置spring.http.encoding=enabled，也是默认生效的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@ConditionalOnProperty</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prefix</span> <span class="o">=</span> <span class="s">&#34;spring.http.encoding&#34;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;enabled&#34;</span><span class="o">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">matchIfMissing</span> <span class="o">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HttpEncodingAutoConfiguration</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 他已经和SpringBoot的配置文件映射了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Encoding</span> <span class="n">properties</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 只有一个有参构造器的情况下，参数的值会从容器中拿
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="nf">HttpEncodingAutoConfiguration</span><span class="o">(</span><span class="n">HttpProperties</span> <span class="n">properties</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">properties</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="na">getEncoding</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Bean</span>	<span class="c1">// 给容器中添加一个组件，这个组件的某些值需要从properties中获取
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@ConditionalOnMissingBean</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">CharacterEncodingFilter</span> <span class="nf">characterEncodingFilter</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CharacterEncodingFilter</span> <span class="n">filter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderedCharacterEncodingFilter</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">filter</span><span class="o">.</span><span class="na">setEncoding</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">properties</span><span class="o">.</span><span class="na">getCharset</span><span class="o">().</span><span class="na">name</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">  <span class="n">filter</span><span class="o">.</span><span class="na">setForceRequestEncoding</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">properties</span><span class="o">.</span><span class="na">shouldForce</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">autoconfigure</span><span class="o">.</span><span class="na">http</span><span class="o">.</span><span class="na">HttpProperties</span><span class="o">.</span><span class="na">Encoding</span><span class="o">.</span><span class="na">Type</span><span class="o">.</span><span class="na">REQUEST</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">	 	 <span class="n">filter</span><span class="o">.</span><span class="na">setForceResponseEncoding</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">properties</span><span class="o">.</span><span class="na">shouldForce</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">autoconfigure</span><span class="o">.</span><span class="na">http</span><span class="o">.</span><span class="na">HttpProperties</span><span class="o">.</span><span class="na">Encoding</span><span class="o">.</span><span class="na">Type</span><span class="o">.</span><span class="na">RESPONSE</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">filter</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>根据当前不同的条件判断，决定这个配置类是否生效。</p>
+<p>一旦配置类生效，这个配置类就会个容器中添加各种组件，这些组件是从对应的properties类中获取的，而这些类里面的每一个属性又是和配置文件绑定的。</p>
+</li>
+<li>
+<p>所有在配置文件中能配置的属性，都是在xxxProperties类中封装着；配置文件能配置什么，就可以参照某个功能对应的属性类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ConfigurationProperties</span><span class="o">(</span>	
+</span></span><span class="line"><span class="cl">    <span class="n">prefix</span> <span class="o">=</span> <span class="s">&#34;spring.http&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span>	<span class="c1">// 从配置文件中获取指定的值和bean的属性进行绑定
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HttpProperties</span> <span class="o">{</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="精髓">精髓<a hidden class="anchor" aria-hidden="true" href="#精髓">#</a></h3>
+<ol>
+<li>
+<p>SpringBoot启动会加载大量的配置类</p>
+</li>
+<li>
+<p>我们看我们的功能有没有SpringBoot默认写好的自动配置类；</p>
+</li>
+<li>
+<p>再看这个自动配置类中到底配置了哪些组件（只要我们要用的组件有，我们就不需要再来配置）</p>
+</li>
+<li>
+<p>给容器中自动配置类添加组件时，会从propertie中获取某些属性，我们就可以在配置文件中指定这些属性的值</p>
+<p><code>xxxAutoConfiguration</code>：自动配置类，给容器中添加组件</p>
+<p><code>xxxProperties</code>：封装配置文件中相关属性</p>
+</li>
+</ol>
+<h2 id="9-细节">9. 细节<a hidden class="anchor" aria-hidden="true" href="#9-细节">#</a></h2>
+<h3 id="1-conditional派生注解">1. @Conditional派生注解<a hidden class="anchor" aria-hidden="true" href="#1-conditional派生注解">#</a></h3>
+<p>作用：必须是<code>@Conditional</code>指定的条件成立，才给容器中添加组件，配置类里面的所有内容才生效</p>
+<p><strong>自动配置类必须在一定的条件下才能生效</strong></p>
+<p>通过</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">debug=true
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>让控制台打印自动配置报告，这样我们就可以很方便地知道哪些自动配置类生效</p>
+<p>分为<code>Positive matches</code>和<code>Negative matches</code></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://haventong.github.io/tags/spring-boot/">Spring Boot</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://haventong.github.io/post/springboot%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>SpringBoot新建项目</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share SpringBoot配置 on twitter"
+        href="https://twitter.com/intent/tweet/?text=SpringBoot%e9%85%8d%e7%bd%ae&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E9%2585%258D%25E7%25BD%25AE%2f&amp;hashtags=SpringBoot">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share SpringBoot配置 on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E9%2585%258D%25E7%25BD%25AE%2f&amp;title=SpringBoot%e9%85%8d%e7%bd%ae&amp;summary=SpringBoot%e9%85%8d%e7%bd%ae&amp;source=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E9%2585%258D%25E7%25BD%25AE%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share SpringBoot配置 on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E9%2585%258D%25E7%25BD%25AE%2f&title=SpringBoot%e9%85%8d%e7%bd%ae">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share SpringBoot配置 on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E9%2585%258D%25E7%25BD%25AE%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share SpringBoot配置 on whatsapp"
+        href="https://api.whatsapp.com/send?text=SpringBoot%e9%85%8d%e7%bd%ae%20-%20https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E9%2585%258D%25E7%25BD%25AE%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share SpringBoot配置 on telegram"
+        href="https://telegram.me/share/url?text=SpringBoot%e9%85%8d%e7%bd%ae&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E9%2585%258D%25E7%25BD%25AE%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://haventong.github.io">Hanwen Tong</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -6,7 +6,16 @@
     <description>Recent content on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Mar 2022 20:22:31 +0800</lastBuildDate><atom:link href="https://haventong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Mar 2022 21:04:21 +0800</lastBuildDate><atom:link href="https://haventong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot配置</title>
+      <link>https://haventong.github.io/post/springboot%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 17 Mar 2022 21:04:21 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/springboot%E9%85%8D%E7%BD%AE/</guid>
+      <description>Spring Boot配置 1. 标记语言 以前的配置文件：xxx.xml YAML: 以数据为中心，比json, xml更适合作配置文件，实例如下 1 2 server:port:8081 XML: 1 2 3 &amp;lt;server&amp;gt; &amp;lt;port&amp;gt;8081&amp;lt;/port&amp;gt; &amp;lt;/server&amp;gt; 2. YA</description>
+    </item>
+    
     <item>
       <title>SpringBoot新建项目</title>
       <link>https://haventong.github.io/post/springboot%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE/</link>

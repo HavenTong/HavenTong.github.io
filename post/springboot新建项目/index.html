@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>SpringBoot新建项目 | Hanwen Tong</title>
-<meta name="keywords" content="" />
+<meta name="keywords" content="Spring Boot" />
 <meta name="description" content="SpringBoot HelloWorld 一个功能： 浏览器发送一个hello请求，浏览器接受请求并处理，响应hello字符串 1. 创建一个maven工程(jar) 2. 导入SpringB">
 <meta name="author" content="Hanwen Tong">
 <link rel="canonical" href="https://haventong.github.io/post/springboot%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE/" />
@@ -129,7 +129,7 @@ if (!doNotTrack) {
   "name": "SpringBoot新建项目",
   "description": "SpringBoot HelloWorld 一个功能： 浏览器发送一个hello请求，浏览器接受请求并处理，响应hello字符串 1. 创建一个maven工程(jar) 2. 导入SpringB",
   "keywords": [
-    
+    "Spring Boot"
   ],
   "articleBody": "SpringBoot HelloWorld 一个功能：\n浏览器发送一个hello请求，浏览器接受请求并处理，响应hello字符串\n1. 创建一个maven工程(jar) 2. 导入SpringBoot相关依赖 maven选择自动导入\n1 2 3 4 5 6 7 8 9 10 11 12 13   org.springframework.boot spring-boot-starter-parent 2.1.8.RELEASE    org.springframework.boot spring-boot-starter-web 2.1.8.RELEASE     (1) 父项目 1 2 3 4 5   org.springframework.boot spring-boot-starter-parent 2.1.8.RELEASE    它的父项目是\n1 2 3 4 5 6 7   org.springframework.boot spring-boot-dependencies 2.1.8.RELEASE ../../spring-boot-dependencies  来真正管理Spring Boot里的所有依赖   SpringBoot的版本仲裁中心；\n导入依赖默认不需要写版本(没有在dependencies中进行管理的自然需要声明版本号)\n(2) 导入的依赖 1 2 3 4 5   org.springframework.boot spring-boot-starter-web 2.1.8.RELEASE    Spring-boot-starter-web\n  spring boot场景启动器: 帮我们导入了web模块正常运行所依赖的组件\n  SpringBoot将所有功能场景都抽取出来，做成一个个starters(启动器)，只需要在项目中引入这些starter，相关场景的所有依赖都会导入进来。要用什么功能就导入什么场景的启动器\n  3. 编写主程序 1  @SpringBootApplication\t// 来标注一个主程序类，说明这是一个Spring Boot类   @SpringBootApplication：SpringBoot标注在某个类上，说明这个类是SpringBoot的主配置类。SpringBoot就应该运行这个类的main 方法来启动SpringBoot类。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  @Target({ElementType.TYPE}) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan( excludeFilters = {@Filter( type = FilterType.CUSTOM, classes = {TypeExcludeFilter.class} ), @Filter( type = FilterType.CUSTOM, classes = {AutoConfigurationExcludeFilter.class} )} ) public @interface SpringBootApplication     @SpringBootConfiguration：SpringBoot的配置类\n标注在某个类上，表示这是一个Spring Boot配置类\n  @Configuration：配置类上标注这个注解\n配置类==配置文件；配置类也是容器中的一个组件；@Component\n  @EnableAutoConfiguration：开启自动配置功能\n以前我们需要配置的东西，SpringBoot自动帮我们配置\n1 2 3  @AutoConfigurationPackage @Import({AutoConfigurationImportSelector.class}) public @interface EnableAutoConfiguration     @AutoConfigurationPackage：自动配置包\n@Import({Registrar.class})\nSpring的底层注解，@Import给容器中导入一个组件；导入的组件由Registrar.class\n将主配置类(@SpringBootApplication标注的类)的所在包及下面所有子包里面的所有组件都扫描到Spring容器中。\n  @Import({AutoConfigurationImportSelector.class})\n给容器中导入组件，\nAutoConfigurationImportSelector.class：导入哪些组件的选择器\n将所有需要导入的组件以全类名的方式返回；\n这些组件就会被添加到容器中；\n会给容器中导入非常多的自动配置类(xxxAutoConfiguration)；就是给容器中导入这个场景需要的所有组件，并配置好这些组件\n有了自动配置类，就免去了手动编写配置注入功能组件的工作\nSpring Boot在启动时从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作\nJ2EE的整体解决方案和自动配置都在spring-boot-autoconfiguration中\n  4. 编写相关的Controller, Service 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  package com.haven.Controller; import org.springframework.stereotype.Controller; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.ResponseBody; /** * @author HavenTong * @date 2019-09-09 00:56 */ @Controller public class HelloController { @ResponseBody @RequestMapping(\"/hello\") private String hello(){ return (\"Hello World\"); } }   5. 运行主程序测试 6. 简化部署 https://docs.spring.io/spring-boot/docs/2.1.8.RELEASE/reference/html/getting-started-first-application.html#getting-started-first-application-executable-jar\n11.5\n导入Spring Boot的maven插件\n1 2 3 4 5 6 7 8 9      org.springframework.boot spring-boot-maven-plugin      侧边栏—Maven—项目—LifeCycle—package\n1  java -jar   进行执行\n7. 使用SpringBoot Initializer创建的项目   resources\n  static: 保存的所有静态资源\tjs, css, 图片\n  templates: 保存所有的模版页面。(Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持jsp的页面);\n可以使用模版引擎(freemarker, thymeleaf);\n  **application.properties: **Spring Boot应用的配置文件\n    ",
   "wordCount" : "1569",
@@ -574,7 +574,15 @@ if (!doNotTrack) {
   </div>
 
   <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://haventong.github.io/tags/spring-boot/">Spring Boot</a></li>
+    </ul>
 <nav class="paginav">
+  <a class="prev" href="https://haventong.github.io/post/springboot%E9%85%8D%E7%BD%AE/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>SpringBoot配置</span>
+  </a>
   <a class="next" href="https://haventong.github.io/post/stl%E7%AC%94%E8%AE%B0/">
     <span class="title">Next Page »</span>
     <br>
@@ -585,7 +593,7 @@ if (!doNotTrack) {
 
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share SpringBoot新建项目 on twitter"
-        href="https://twitter.com/intent/tweet/?text=SpringBoot%e6%96%b0%e5%bb%ba%e9%a1%b9%e7%9b%ae&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E6%2596%25B0%25E5%25BB%25BA%25E9%25A1%25B9%25E7%259B%25AE%2f&amp;hashtags=">
+        href="https://twitter.com/intent/tweet/?text=SpringBoot%e6%96%b0%e5%bb%ba%e9%a1%b9%e7%9b%ae&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fspringboot%25E6%2596%25B0%25E5%25BB%25BA%25E9%25A1%25B9%25E7%259B%25AE%2f&amp;hashtags=SpringBoot">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />

@@ -5,6 +5,16 @@
     <link>https://haventong.github.io/categories/</link>
     <description>Recent content in Categories on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://haventong.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Mar 2022 21:04:21 +0800</lastBuildDate><atom:link href="https://haventong.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Framework</title>
+      <link>https://haventong.github.io/categories/framework/</link>
+      <pubDate>Thu, 17 Mar 2022 21:04:21 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/categories/framework/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
