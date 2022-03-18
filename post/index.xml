@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 00:43:24 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 09:35:57 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot CORS</title>
+      <link>https://haventong.github.io/post/springboot-cors/</link>
+      <pubDate>Fri, 18 Mar 2022 09:35:57 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/springboot-cors/</guid>
+      <description>Spring Boot-CORS 什么是跨域？ 定义：浏览器从一个域名的网页取请求另一个域名下的东西。通俗点说，浏览器直接从A域访问B域中的资源是不被允许的，如果想要访问，</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; Priority Queue</title>
       <link>https://haventong.github.io/post/c&#43;&#43;-priority-queue/</link>
