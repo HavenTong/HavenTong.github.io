@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 10:51:35 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 10:56:45 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Theme PaperMod😎</title>
+      <link>https://haventong.github.io/post/new-theme-papermod/</link>
+      <pubDate>Fri, 18 Mar 2022 10:56:45 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/new-theme-papermod/</guid>
+      <description>希望今后可以经常更新 ✍ 🌟 博客更换了新的框架 hugo 和新主题 PaperMod 🌟 原先的BLOG内容都已经同步过来，今后将只更新当前BLOG</description>
+    </item>
+    
     <item>
       <title>Latex中插入代码</title>
       <link>https://haventong.github.io/post/latex%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/</link>

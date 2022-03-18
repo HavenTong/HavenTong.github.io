@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Life on Hanwen Tong</title>
+    <link>https://haventong.github.io/categories/life/</link>
+    <description>Recent content in Life on Hanwen Tong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Mar 2022 10:56:45 +0800</lastBuildDate><atom:link href="https://haventong.github.io/categories/life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Theme PaperMod😎</title>
+      <link>https://haventong.github.io/post/new-theme-papermod/</link>
+      <pubDate>Fri, 18 Mar 2022 10:56:45 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/new-theme-papermod/</guid>
+      <description>希望今后可以经常更新 ✍ 🌟 博客更换了新的框架 hugo 和新主题 PaperMod 🌟 原先的BLOG内容都已经同步过来，今后将只更新当前BLOG</description>
+    </item>
+    
+  </channel>
+</rss>
