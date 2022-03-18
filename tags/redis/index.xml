@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>redis on Hanwen Tong</title>
+    <link>https://haventong.github.io/tags/redis/</link>
+    <description>Recent content in redis on Hanwen Tong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Mar 2022 09:58:47 +0800</lastBuildDate><atom:link href="https://haventong.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis.conf</title>
+      <link>https://haventong.github.io/post/redis-conf/</link>
+      <pubDate>Fri, 18 Mar 2022 09:58:47 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/redis-conf/</guid>
+      <description>绑定的主机地址 1 bind 127.0.0.1 如果需要远程访问，则需要注释掉 守护进程 1 daemonize no Redis默认以非守护进程运行，如果想要改为守护进程，则设置为yes pidfile 1 pidfile /var/run/redis_6379.pid</description>
+    </item>
+    
+  </channel>
+</rss>
