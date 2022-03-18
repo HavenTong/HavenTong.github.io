@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Java on Hanwen Tong</title>
+    <link>https://haventong.github.io/tags/java/</link>
+    <description>Recent content in Java on Hanwen Tong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Mar 2022 09:53:17 +0800</lastBuildDate><atom:link href="https://haventong.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serializable接口</title>
+      <link>https://haventong.github.io/post/serializable%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Fri, 18 Mar 2022 09:53:17 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/serializable%E6%8E%A5%E5%8F%A3/</guid>
+      <description>Serializable接口概述 Serializable是java.io包中定义的、用于实现Java类的序列化操作而提供的一个语义级别的接口</description>
+    </item>
+    
+  </channel>
+</rss>

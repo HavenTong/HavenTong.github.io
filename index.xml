@@ -6,7 +6,16 @@
     <description>Recent content on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 09:35:57 +0800</lastBuildDate><atom:link href="https://haventong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 09:53:17 +0800</lastBuildDate><atom:link href="https://haventong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serializable接口</title>
+      <link>https://haventong.github.io/post/serializable%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Fri, 18 Mar 2022 09:53:17 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/serializable%E6%8E%A5%E5%8F%A3/</guid>
+      <description>Serializable接口概述 Serializable是java.io包中定义的、用于实现Java类的序列化操作而提供的一个语义级别的接口</description>
+    </item>
+    
     <item>
       <title>SpringBoot CORS</title>
       <link>https://haventong.github.io/post/springboot-cors/</link>
