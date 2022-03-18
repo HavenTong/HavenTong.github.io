@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haventong.github.io/categories/</loc>
+    <lastmod>2022-03-18T10:51:35+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/</loc>
+    <lastmod>2022-03-18T10:51:35+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/tags/latex/</loc>
+    <lastmod>2022-03-18T10:51:35+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/post/latex%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/</loc>
+    <lastmod>2022-03-18T10:51:35+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/post/</loc>
+    <lastmod>2022-03-18T10:51:35+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/tags/</loc>
+    <lastmod>2022-03-18T10:51:35+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/categories/writing/</loc>
+    <lastmod>2022-03-18T10:51:35+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/post/first-ak/</loc>
+    <lastmod>2022-03-18T10:50:04+08:00</lastmod>
+  </url><url>
     <loc>https://haventong.github.io/categories/algorithm/</loc>
     <lastmod>2022-03-18T10:47:39+08:00</lastmod>
   </url><url>
-    <loc>https://haventong.github.io/categories/</loc>
-    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
-  </url><url>
     <loc>https://haventong.github.io/tags/graph/</loc>
-    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
-  </url><url>
-    <loc>https://haventong.github.io/</loc>
-    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
-  </url><url>
-    <loc>https://haventong.github.io/post/</loc>
-    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
-  </url><url>
-    <loc>https://haventong.github.io/tags/</loc>
     <lastmod>2022-03-18T10:47:39+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/post/topological-sort/</loc>

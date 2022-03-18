@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 10:47:39 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 10:51:35 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Latex中插入代码</title>
+      <link>https://haventong.github.io/post/latex%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Fri, 18 Mar 2022 10:51:35 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/latex%E4%B8%AD%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/</guid>
+      <description>minted是一个可以在LaTex中插入代码的包，可以通过以下方式使用： 配置 1 2 3 4 5 6 7 8 9 10 11 12 \usepackage{xcolor} \usepackage{minted} \definecolor{bg}{rgb}{0.95,0.95,0.95} \setminted{ frame=lines, tabsize=4, encoding=utf8, bgcolor=bg, fontsize=\footnotesize, linenos, breaklines, } 使用 1 2 3 4 5 6</description>
+    </item>
+    
+    <item>
+      <title>First Ak</title>
+      <link>https://haventong.github.io/post/first-ak/</link>
+      <pubDate>Fri, 18 Mar 2022 10:50:04 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/first-ak/</guid>
+      <description>纪念一下人生第一次AK: 后续题解会尽快补充</description>
+    </item>
+    
     <item>
       <title>Topological Sort</title>
       <link>https://haventong.github.io/post/topological-sort/</link>
