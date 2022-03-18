@@ -6,7 +6,16 @@
     <description>Recent content on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 09:58:47 +0800</lastBuildDate><atom:link href="https://haventong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 10:02:55 +0800</lastBuildDate><atom:link href="https://haventong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis基本配置及开关</title>
+      <link>https://haventong.github.io/post/redis%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%BC%80%E5%85%B3/</link>
+      <pubDate>Fri, 18 Mar 2022 10:02:55 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/redis%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%BC%80%E5%85%B3/</guid>
+      <description>配置redis服务端 允许远程访问 注释掉 bind 127.0.0.1 以守护进程运行 将daemonize no 改为 daemonize yes Java 连接redis必须设置密码： requirepass &amp;lt;password&amp;gt; 查看redis是否在</description>
+    </item>
+    
     <item>
       <title>redis.conf</title>
       <link>https://haventong.github.io/post/redis-conf/</link>
