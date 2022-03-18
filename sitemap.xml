@@ -3,24 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://haventong.github.io/categories/</loc>
-    <lastmod>2022-03-18T10:02:55+08:00</lastmod>
+    <lastmod>2022-03-18T10:05:43+08:00</lastmod>
   </url><url>
-    <loc>https://haventong.github.io/categories/database/</loc>
-    <lastmod>2022-03-18T10:02:55+08:00</lastmod>
+    <loc>https://haventong.github.io/categories/framework/</loc>
+    <lastmod>2022-03-18T10:05:43+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/</loc>
-    <lastmod>2022-03-18T10:02:55+08:00</lastmod>
+    <lastmod>2022-03-18T10:05:43+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/post/</loc>
+    <lastmod>2022-03-18T10:05:43+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/tags/spring-boot/</loc>
+    <lastmod>2022-03-18T10:05:43+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/post/springboot%E4%B8%BA%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E6%89%93%E6%A1%A9/</loc>
+    <lastmod>2022-03-18T10:05:43+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/tags/</loc>
+    <lastmod>2022-03-18T10:05:43+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/categories/database/</loc>
     <lastmod>2022-03-18T10:02:55+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/tags/redis/</loc>
     <lastmod>2022-03-18T10:02:55+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/post/redis%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%BC%80%E5%85%B3/</loc>
-    <lastmod>2022-03-18T10:02:55+08:00</lastmod>
-  </url><url>
-    <loc>https://haventong.github.io/tags/</loc>
     <lastmod>2022-03-18T10:02:55+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/post/redis-conf/</loc>
@@ -34,12 +43,6 @@
   </url><url>
     <loc>https://haventong.github.io/post/serializable%E6%8E%A5%E5%8F%A3/</loc>
     <lastmod>2022-03-18T09:53:17+08:00</lastmod>
-  </url><url>
-    <loc>https://haventong.github.io/categories/framework/</loc>
-    <lastmod>2022-03-18T09:35:57+08:00</lastmod>
-  </url><url>
-    <loc>https://haventong.github.io/tags/spring-boot/</loc>
-    <lastmod>2022-03-18T09:35:57+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/post/springboot-cors/</loc>
     <lastmod>2022-03-18T09:35:57+08:00</lastmod>

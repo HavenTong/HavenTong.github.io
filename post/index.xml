@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 10:02:55 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 10:05:43 +0800</lastBuildDate><atom:link href="https://haventong.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot为静态方法打桩</title>
+      <link>https://haventong.github.io/post/springboot%E4%B8%BA%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E6%89%93%E6%A1%A9/</link>
+      <pubDate>Fri, 18 Mar 2022 10:05:43 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/springboot%E4%B8%BA%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E6%89%93%E6%A1%A9/</guid>
+      <description>Spring Boot对静态方法进行打桩 问题 在对Spring Boot项目进行测试的时候，会对业务逻辑service层进行测试。而service层的代码可</description>
+    </item>
+    
     <item>
       <title>redis基本配置及开关</title>
       <link>https://haventong.github.io/post/redis%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%BC%80%E5%85%B3/</link>
