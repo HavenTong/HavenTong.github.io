@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Algorithm on Hanwen Tong</title>
+    <link>https://haventong.github.io/categories/algorithm/</link>
+    <description>Recent content in Algorithm on Hanwen Tong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Mar 2022 10:47:39 +0800</lastBuildDate><atom:link href="https://haventong.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Topological Sort</title>
+      <link>https://haventong.github.io/post/topological-sort/</link>
+      <pubDate>Fri, 18 Mar 2022 10:47:39 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/topological-sort/</guid>
+      <description>拓扑排序 近日实现了一下拓扑排序，在这里记录一下拓扑排序的思想，并附上一个具体的题目 这里使用bfs实现 思想 对一个有向无环图(DAG-Direc</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,11 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haventong.github.io/categories/algorithm/</loc>
+    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
+  </url><url>
     <loc>https://haventong.github.io/categories/</loc>
-    <lastmod>2022-03-18T10:44:14+08:00</lastmod>
+    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/tags/graph/</loc>
+    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/</loc>
-    <lastmod>2022-03-18T10:44:14+08:00</lastmod>
+    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/post/</loc>
+    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/tags/</loc>
+    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
+  </url><url>
+    <loc>https://haventong.github.io/post/topological-sort/</loc>
+    <lastmod>2022-03-18T10:47:39+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/tags/java/</loc>
     <lastmod>2022-03-18T10:44:14+08:00</lastmod>
@@ -14,13 +29,7 @@
     <loc>https://haventong.github.io/post/java-map/</loc>
     <lastmod>2022-03-18T10:44:14+08:00</lastmod>
   </url><url>
-    <loc>https://haventong.github.io/post/</loc>
-    <lastmod>2022-03-18T10:44:14+08:00</lastmod>
-  </url><url>
     <loc>https://haventong.github.io/categories/programming-language/</loc>
-    <lastmod>2022-03-18T10:44:14+08:00</lastmod>
-  </url><url>
-    <loc>https://haventong.github.io/tags/</loc>
     <lastmod>2022-03-18T10:44:14+08:00</lastmod>
   </url><url>
     <loc>https://haventong.github.io/tags/c&#43;&#43;/</loc>
