@@ -6,7 +6,16 @@
     <description>Recent content in Programming Language on Hanwen Tong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Mar 2022 10:09:40 +0800</lastBuildDate><atom:link href="https://haventong.github.io/categories/programming-language/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 10:39:55 +0800</lastBuildDate><atom:link href="https://haventong.github.io/categories/programming-language/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>STL Map</title>
+      <link>https://haventong.github.io/post/stl-map/</link>
+      <pubDate>Fri, 18 Mar 2022 10:39:55 +0800</pubDate>
+      
+      <guid>https://haventong.github.io/post/stl-map/</guid>
+      <description>近日做题用到了C++中STL的map容器，在涉及map的排序过程时，通常有两种方式进行排序 Sort by key Sort by value 为了加深这两种排序方式的写法，我又写了</description>
+    </item>
+    
     <item>
       <title>validation-api</title>
       <link>https://haventong.github.io/post/validation-api/</link>
