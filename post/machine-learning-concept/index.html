@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>STL笔记 | Hanwen Tong</title>
+<title>Machine Learning Concept | Hanwen Tong</title>
 <meta name="keywords" content="" />
-<meta name="description" content="STL容器共性 STL容器所提供的都是值寓意，而非引用寓意，也就是说当我们向容器插入元素的时候，容器内部实施了拷贝动作，将我们要插入的元素再另">
+<meta name="description" content="1. 数据 大写字母表示举证，大写字母表示向量 数据整体叫数据集(data set) 每一行数据称为一个样本(sample) 每一个字段表达样本的一个特征(fe">
 <meta name="author" content="Hanwen Tong">
-<link rel="canonical" href="https://haventong.github.io/post/stl%E7%AC%94%E8%AE%B0/" />
+<link rel="canonical" href="https://haventong.github.io/post/machine-learning-concept/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -89,16 +89,16 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="STL笔记" />
-<meta property="og:description" content="STL容器共性 STL容器所提供的都是值寓意，而非引用寓意，也就是说当我们向容器插入元素的时候，容器内部实施了拷贝动作，将我们要插入的元素再另" />
+</script><meta property="og:title" content="Machine Learning Concept" />
+<meta property="og:description" content="1. 数据 大写字母表示举证，大写字母表示向量 数据整体叫数据集(data set) 每一行数据称为一个样本(sample) 每一个字段表达样本的一个特征(fe" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://haventong.github.io/post/stl%E7%AC%94%E8%AE%B0/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-17T20:00:10&#43;08:00" />
-<meta property="article:modified_time" content="2022-03-17T20:00:10&#43;08:00" />
+<meta property="og:url" content="https://haventong.github.io/post/machine-learning-concept/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-18T10:12:56&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-18T10:12:56&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="STL笔记"/>
-<meta name="twitter:description" content="STL容器共性 STL容器所提供的都是值寓意，而非引用寓意，也就是说当我们向容器插入元素的时候，容器内部实施了拷贝动作，将我们要插入的元素再另"/>
+<meta name="twitter:title" content="Machine Learning Concept"/>
+<meta name="twitter:description" content="1. 数据 大写字母表示举证，大写字母表示向量 数据整体叫数据集(data set) 每一行数据称为一个样本(sample) 每一个字段表达样本的一个特征(fe"/>
 
 
 <script type="application/ld+json">
@@ -115,8 +115,8 @@ if (!doNotTrack) {
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "STL笔记",
-      "item": "https://haventong.github.io/post/stl%E7%AC%94%E8%AE%B0/"
+      "name": "Machine Learning Concept",
+      "item": "https://haventong.github.io/post/machine-learning-concept/"
     }
   ]
 }
@@ -125,24 +125,24 @@ if (!doNotTrack) {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "STL笔记",
-  "name": "STL笔记",
-  "description": "STL容器共性 STL容器所提供的都是值寓意，而非引用寓意，也就是说当我们向容器插入元素的时候，容器内部实施了拷贝动作，将我们要插入的元素再另",
+  "headline": "Machine Learning Concept",
+  "name": "Machine Learning Concept",
+  "description": "1. 数据 大写字母表示举证，大写字母表示向量 数据整体叫数据集(data set) 每一行数据称为一个样本(sample) 每一个字段表达样本的一个特征(fe",
   "keywords": [
     
   ],
-  "articleBody": "STL容器共性 STL容器所提供的都是值寓意，而非引用寓意，也就是说当我们向容器插入元素的时候，容器内部实施了拷贝动作，将我们要插入的元素再另行拷贝一份放入到容器中，也就是说我们提供的元素必须能够拷贝。\n 若有指针，需要写拷贝构造，重载等号\n  除了queue和stack之外，每个容器都提供可返回迭代器的函数，运用返回的迭代器就可以访问元素。 通常STL不会抛出异常，需要使用者传入正确参数。 每个容器都提供了一个默认的构造函数和默认的拷贝构造函数。 大小相关的构造方法：  size()返回容器中元素的个数 empty()判断元素是否为空    STL容器使用时机     vector deque list set multiset map multimap     典型内存结构 单端数组 双端数组 双向链表 二叉树 二叉树 二叉树 二叉树   可随机存取 是 是 否 否 否 对key而言，是 否   元素搜寻速度 慢 慢 非常慢 快 快 对key而言，快 对key而言，快   元素安插移除 尾端 头尾两端 任何位置 - - - -    使用场景 vector 软件历史操作数据的存储，经常查看历史记录，但不会删除记录。\ndeque 排队购票系统，排队者的存储可以采用deque，支持头部快速移除，尾端快速添加。如果采用vector，头部移除会移动大量数据，速度慢。\nvector v.s. deque  vector.at()比deque.at()效率高：vector.at(0)是固定的，deque的开始位置是不固定的 如果有大量释放操作时，vector花的时间更少 deque支持头部的快速插入与移除  list 公交车乘客的存储，随时可能有乘客下车，支持频繁的不确定位置元素的移除和插入\nset 对手机游戏的个人得分纪录的存储，存储要求从高分到低分的顺序排列\nmap 按ID号存储十万个用户，想要快速通过ID查找对应的用户。利用二叉树的查找效率。\n",
-  "wordCount" : "685",
+  "articleBody": "1. 数据  大写字母表示举证，大写字母表示向量\n  数据整体叫数据集(data set) 每一行数据称为一个样本(sample) 每一个字段表达样本的一个特征(feature) 第i个样本写作 $ X^{(i)} $ ，第i个样本第j个特征值写作 $X^{(i)}_j $ 学习的任务：标记(label), 表示为 $ y $, 第 $i$ 个样本的标记写作 $ y^{ (i) } $ 第 $i$ 行，也就是第 $i$ 个样本，也被称作特征向量 $ X^{ (i) } $  $$ X^{(i)} = \\begin{pmatrix} 5.1 \\\\ 3.5 \\\\ 1.4 \\\\ 0.2 \\end{pmatrix} $$\n 数学中通常把向量表示成列向量，所以通常特征可以表示成如下的形式:  $$ \\begin{pmatrix} (X^{(1)})^T \\\\ (X^{(2)})^T \\\\ (X^{(3)})^T \\end{pmatrix} $$\n 所有特征所存在的空间，称为特征空间(feature space)  分类任务的本质就是特征空间的划分 在高维空间同理   特征可以很抽象  图像中，每一个像素点都是特征，e.g. 28 * 28的图像就有28 * 28 = 784个特征 如果彩色图像特征更多    2. 基本任务  监督学习主要处理分类和回归问题\n 分类  二分类  判断邮件是否是垃圾邮件 判断发放给客户信用卡是否有风险 判断肿瘤是恶性还是良性 判断股票涨跌   多分类  数字识别 图像识别 判断发放给客户的信用卡的风险评级     很多复杂的问题可以转换成多分类问题\n  一些算法只支持二分类的任务，但多分类的任务可以转换成二分类的任务 一些算法天然可以完成多分类任务 多标签分类 e.g. 对图片中的元素进行划分  回归  结果是一个连续数字的值，而非一个类别  房屋价格 市场分析 学生成绩 股票价格   有一些算法只能解决回归问题，有一些算法只能解决分类问题，有一些算法都可以解决 一些情况下，回归任务可以简化为分类任务  流程  模型 $f(x)$  3. 机器学习分类 监督学习 给机器的训练数据拥有\"标记\"or\"答案\"\n 图片已经拥有了标定信息 银行已经积累了一定的客户信息和他们信用卡的信用情况 医院已经积累了一定的病人信息和他们最终确诊是否患病的情况 市场积累了房屋的基本信息和最终成交的金额  非监督学习 给机器的训练数据没有任何\"标记\"或者“答案”\n对没有\"标记\"的数据进行分类-聚类分析\n意义 对数据进行降维处理\n 特征提取：信用卡的信用评级和人的胖瘦无关？ 特征压缩(特征之间关系很强)：PCA  降维处理可以方便可视化\n异常检测\n半监督学习   一部分数据标有\"标记\"或者\"答案\"，另一部分数据没有\n  更常见：各种原因产生的标记缺失\n  通常都先使用无监督学习手段对数据做处理，之后使用监督学习手段做模型的训练和预测\n  增强学习 根据周围环境的情况，采取行动，根据采取行动的结果，学习行动方式\n行动-反馈\n奖赏或惩罚机制\n4. 机器学习的其他分类 批量学习(Batch Learning)  优点：简单 问题：如何适应环境变化？ 解决方案：定时重新批量学习 缺点：每次重新批量学习，运算量巨大；同时，在某些环境变化非常快的情况下，甚至不可能  在线学习(Online Learning) 输入样例和正确结果迭代进入机器学习算法\n 优点：及时反映新的环境变化 问题：新的数据带来不好的变化？ 解决方案：需要加强对数据进行监控 其他：也适用于数据量巨大，无法完全批量学习的环境  参数学习(Parametric Learning) e.g. 假设模型定为 $f(x) = ax + b$，那么机器学习的任务就是找到合适的 $a$ 和 $b$\n特点：一旦学到了参数，就不再需要原有的数据集\n非参数学习(Nonparametric Learning)  不对模型进行过多假设 非参数不代表没有参数  ",
+  "wordCount" : "1318",
   "inLanguage": "en",
-  "datePublished": "2022-03-17T20:00:10+08:00",
-  "dateModified": "2022-03-17T20:00:10+08:00",
+  "datePublished": "2022-03-18T10:12:56+08:00",
+  "dateModified": "2022-03-18T10:12:56+08:00",
   "author":{
     "@type": "Person",
     "name": "Hanwen Tong"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://haventong.github.io/post/stl%E7%AC%94%E8%AE%B0/"
+    "@id": "https://haventong.github.io/post/machine-learning-concept/"
   },
   "publisher": {
     "@type": "Organization",
@@ -225,9 +225,9 @@ if (!doNotTrack) {
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://haventong.github.io">Home</a>&nbsp;»&nbsp;<a href="https://haventong.github.io/post/">Posts</a></div>
     <h1 class="post-title">
-      STL笔记
+      Machine Learning Concept
     </h1>
-    <div class="post-meta"><span title='2022-03-17 20:00:10 +0800 CST'>March 17, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Hanwen Tong
+    <div class="post-meta"><span title='2022-03-18 10:12:56 +0800 CST'>March 18, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Hanwen Tong
 
 </div>
   </header> <div class="toc">
@@ -238,24 +238,44 @@ if (!doNotTrack) {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#stl%e5%ae%b9%e5%99%a8%e5%85%b1%e6%80%a7" aria-label="STL容器共性">STL容器共性</a></li>
+                    <a href="#1-%e6%95%b0%e6%8d%ae" aria-label="1. 数据">1. 数据</a></li>
                 <li>
-                    <a href="#stl%e5%ae%b9%e5%99%a8%e4%bd%bf%e7%94%a8%e6%97%b6%e6%9c%ba" aria-label="STL容器使用时机">STL容器使用时机</a></li>
-                <li>
-                    <a href="#%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af" aria-label="使用场景">使用场景</a><ul>
+                    <a href="#2-%e5%9f%ba%e6%9c%ac%e4%bb%bb%e5%8a%a1" aria-label="2. 基本任务">2. 基本任务</a><ul>
                         
                 <li>
-                    <a href="#vector" aria-label="vector">vector</a></li>
+                    <a href="#%e5%88%86%e7%b1%bb" aria-label="分类">分类</a></li>
                 <li>
-                    <a href="#deque" aria-label="deque">deque</a></li>
+                    <a href="#%e5%9b%9e%e5%bd%92" aria-label="回归">回归</a></li>
                 <li>
-                    <a href="#vector-vs-deque" aria-label="vector v.s. deque">vector v.s. deque</a></li>
+                    <a href="#%e6%b5%81%e7%a8%8b" aria-label="流程">流程</a></li></ul>
+                </li>
                 <li>
-                    <a href="#list" aria-label="list">list</a></li>
+                    <a href="#3-%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e5%88%86%e7%b1%bb" aria-label="3. 机器学习分类">3. 机器学习分类</a><ul>
+                        
                 <li>
-                    <a href="#set" aria-label="set">set</a></li>
+                    <a href="#%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0" aria-label="监督学习">监督学习</a></li>
                 <li>
-                    <a href="#map" aria-label="map">map</a>
+                    <a href="#%e9%9d%9e%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0" aria-label="非监督学习">非监督学习</a><ul>
+                        
+                <li>
+                    <a href="#%e6%84%8f%e4%b9%89" aria-label="意义">意义</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8d%8a%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0" aria-label="半监督学习">半监督学习</a></li>
+                <li>
+                    <a href="#%e5%a2%9e%e5%bc%ba%e5%ad%a6%e4%b9%a0" aria-label="增强学习">增强学习</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%85%b6%e4%bb%96%e5%88%86%e7%b1%bb" aria-label="4. 机器学习的其他分类">4. 机器学习的其他分类</a><ul>
+                        
+                <li>
+                    <a href="#%e6%89%b9%e9%87%8f%e5%ad%a6%e4%b9%a0batch-learning" aria-label="批量学习(Batch Learning)">批量学习(Batch Learning)</a></li>
+                <li>
+                    <a href="#%e5%9c%a8%e7%ba%bf%e5%ad%a6%e4%b9%a0online-learning" aria-label="在线学习(Online Learning)">在线学习(Online Learning)</a></li>
+                <li>
+                    <a href="#%e5%8f%82%e6%95%b0%e5%ad%a6%e4%b9%a0parametric-learning" aria-label="参数学习(Parametric Learning)">参数学习(Parametric Learning)</a></li>
+                <li>
+                    <a href="#%e9%9d%9e%e5%8f%82%e6%95%b0%e5%ad%a6%e4%b9%a0nonparametric-learning" aria-label="非参数学习(Nonparametric Learning)">非参数学习(Nonparametric Learning)</a>
                 </li>
             </ul>
             </li>
@@ -264,153 +284,211 @@ if (!doNotTrack) {
     </details>
 </div>
 
-  <div class="post-content"><h2 id="stl容器共性">STL容器共性<a hidden class="anchor" aria-hidden="true" href="#stl容器共性">#</a></h2>
-<p>STL容器所提供的都是<strong>值寓意</strong>，而非<strong>引用寓意</strong>，也就是说当我们向容器插入元素的时候，容器内部实施了拷贝动作，将我们要插入的元素再另行拷贝一份放入到容器中，也就是说我们提供的元素必须能够拷贝。</p>
+  <div class="post-content"><h2 id="1-数据">1. 数据<a hidden class="anchor" aria-hidden="true" href="#1-数据">#</a></h2>
 <blockquote>
-<p>若有指针，需要写拷贝构造，重载等号</p>
+<p>大写字母表示举证，大写字母表示向量</p>
 </blockquote>
 <ul>
-<li>除了queue和stack之外，每个容器都提供可返回迭代器的函数，运用返回的迭代器就可以访问元素。</li>
-<li>通常STL不会抛出异常，需要使用者传入正确参数。</li>
-<li>每个容器都提供了一个默认的构造函数和默认的拷贝构造函数。</li>
-<li>大小相关的构造方法：
+<li>数据整体叫数据集(data set)</li>
+<li>每一行数据称为一个样本(sample)</li>
+<li>每一个字段表达样本的一个特征(feature)</li>
+<li>第i个样本写作 $ X^{(i)} $ ，第i个样本第j个特征值写作  $X^{(i)}_j $</li>
+<li>学习的任务：标记(label), 表示为 $ y $, 第 $i$ 个样本的标记写作  $ y^{ (i) } $</li>
+<li>第 $i$ 行，也就是第 $i$ 个样本，也被称作特征向量 $ X^{ (i) } $</li>
+</ul>
+<p>$$
+X^{(i)} =  \begin{pmatrix}
+5.1  \\
+3.5  \\
+1.4  \\
+0.2
+\end{pmatrix}
+$$</p>
 <ul>
-<li>size()返回容器中元素的个数</li>
-<li>empty()判断元素是否为空</li>
+<li>数学中通常把向量表示成列向量，所以通常特征可以表示成如下的形式:</li>
+</ul>
+<p>$$
+\begin{pmatrix}
+(X^{(1)})^T  \\
+(X^{(2)})^T  \\
+(X^{(3)})^T
+\end{pmatrix}
+$$</p>
+<ul>
+<li>所有特征所存在的空间，称为特征空间(feature space)
+<ul>
+<li>分类任务的本质就是特征空间的划分</li>
+<li>在高维空间同理</li>
+</ul>
+</li>
+<li>特征可以很抽象
+<ul>
+<li>图像中，每一个像素点都是特征，e.g. 28 * 28的图像就有28 * 28 = 784个特征</li>
+<li>如果彩色图像特征更多</li>
 </ul>
 </li>
 </ul>
-<h2 id="stl容器使用时机">STL容器使用时机<a hidden class="anchor" aria-hidden="true" href="#stl容器使用时机">#</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">vector</th>
-<th style="text-align:center">deque</th>
-<th style="text-align:center">list</th>
-<th style="text-align:center">set</th>
-<th style="text-align:center">multiset</th>
-<th style="text-align:center">map</th>
-<th style="text-align:center">multimap</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">典型内存结构</td>
-<td style="text-align:center">单端数组</td>
-<td style="text-align:center">双端数组</td>
-<td style="text-align:center">双向链表</td>
-<td style="text-align:center">二叉树</td>
-<td style="text-align:center">二叉树</td>
-<td style="text-align:center">二叉树</td>
-<td style="text-align:center">二叉树</td>
-</tr>
-<tr>
-<td style="text-align:center">可随机存取</td>
-<td style="text-align:center">是</td>
-<td style="text-align:center">是</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">对key而言，是</td>
-<td style="text-align:center">否</td>
-</tr>
-<tr>
-<td style="text-align:center">元素搜寻速度</td>
-<td style="text-align:center">慢</td>
-<td style="text-align:center">慢</td>
-<td style="text-align:center">非常慢</td>
-<td style="text-align:center">快</td>
-<td style="text-align:center">快</td>
-<td style="text-align:center">对key而言，快</td>
-<td style="text-align:center">对key而言，快</td>
-</tr>
-<tr>
-<td style="text-align:center">元素安插移除</td>
-<td style="text-align:center">尾端</td>
-<td style="text-align:center">头尾两端</td>
-<td style="text-align:center">任何位置</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-</tbody>
-</table>
-<h2 id="使用场景">使用场景<a hidden class="anchor" aria-hidden="true" href="#使用场景">#</a></h2>
-<h3 id="vector">vector<a hidden class="anchor" aria-hidden="true" href="#vector">#</a></h3>
-<p>软件历史操作数据的存储，经常查看历史记录，但不会删除记录。</p>
-<h3 id="deque">deque<a hidden class="anchor" aria-hidden="true" href="#deque">#</a></h3>
-<p>排队购票系统，排队者的存储可以采用deque，支持头部快速移除，尾端快速添加。如果采用vector，头部移除会移动大量数据，速度慢。</p>
-<h3 id="vector-vs-deque">vector v.s. deque<a hidden class="anchor" aria-hidden="true" href="#vector-vs-deque">#</a></h3>
+<h2 id="2-基本任务">2. 基本任务<a hidden class="anchor" aria-hidden="true" href="#2-基本任务">#</a></h2>
+<blockquote>
+<p>监督学习主要处理分类和回归问题</p>
+</blockquote>
+<h3 id="分类">分类<a hidden class="anchor" aria-hidden="true" href="#分类">#</a></h3>
 <ul>
-<li><code>vector.at()</code>比<code>deque.at()</code>效率高：<code>vector.at(0)</code>是固定的，deque的开始位置是不固定的</li>
-<li>如果有大量释放操作时，vector花的时间更少</li>
-<li>deque支持头部的快速插入与移除</li>
+<li>二分类
+<ul>
+<li>判断邮件是否是垃圾邮件</li>
+<li>判断发放给客户信用卡是否有风险</li>
+<li>判断肿瘤是恶性还是良性</li>
+<li>判断股票涨跌</li>
 </ul>
-<h3 id="list">list<a hidden class="anchor" aria-hidden="true" href="#list">#</a></h3>
-<p>公交车乘客的存储，随时可能有乘客下车，支持频繁的不确定位置元素的移除和插入</p>
-<h3 id="set">set<a hidden class="anchor" aria-hidden="true" href="#set">#</a></h3>
-<p>对手机游戏的个人得分纪录的存储，存储要求从高分到低分的顺序排列</p>
-<h3 id="map">map<a hidden class="anchor" aria-hidden="true" href="#map">#</a></h3>
-<p>按ID号存储十万个用户，想要快速通过ID查找对应的用户。利用二叉树的查找效率。</p>
+</li>
+<li>多分类
+<ul>
+<li>数字识别</li>
+<li>图像识别</li>
+<li>判断发放给客户的信用卡的风险评级</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>很多复杂的问题可以转换成多分类问题</p>
+</blockquote>
+<ul>
+<li>一些算法只支持二分类的任务，但多分类的任务可以转换成二分类的任务</li>
+<li>一些算法天然可以完成多分类任务</li>
+<li>多标签分类 e.g. 对图片中的元素进行划分</li>
+</ul>
+<h3 id="回归">回归<a hidden class="anchor" aria-hidden="true" href="#回归">#</a></h3>
+<ul>
+<li>结果是一个连续数字的值，而非一个类别
+<ul>
+<li>房屋价格</li>
+<li>市场分析</li>
+<li>学生成绩</li>
+<li>股票价格</li>
+</ul>
+</li>
+<li>有一些算法只能解决回归问题，有一些算法只能解决分类问题，有一些算法都可以解决</li>
+<li>一些情况下，回归任务可以简化为分类任务</li>
+</ul>
+<h3 id="流程">流程<a hidden class="anchor" aria-hidden="true" href="#流程">#</a></h3>
+<p><img loading="lazy" src="https://tva1.sinaimg.cn/large/0082zybply1gbq9r8us41j31080bswfi.jpg" alt="image-20200209171829338"  />
+</p>
+<ul>
+<li>模型 $f(x)$</li>
+</ul>
+<h2 id="3-机器学习分类">3. 机器学习分类<a hidden class="anchor" aria-hidden="true" href="#3-机器学习分类">#</a></h2>
+<h3 id="监督学习">监督学习<a hidden class="anchor" aria-hidden="true" href="#监督学习">#</a></h3>
+<p>给机器的训练数据拥有&quot;标记&quot;or&quot;答案&quot;</p>
+<ul>
+<li>图片已经拥有了标定信息</li>
+<li>银行已经积累了一定的客户信息和他们信用卡的信用情况</li>
+<li>医院已经积累了一定的病人信息和他们最终确诊是否患病的情况</li>
+<li>市场积累了房屋的基本信息和最终成交的金额</li>
+</ul>
+<h3 id="非监督学习">非监督学习<a hidden class="anchor" aria-hidden="true" href="#非监督学习">#</a></h3>
+<p>给机器的训练数据没有任何&quot;标记&quot;或者“答案”</p>
+<p>对没有&quot;标记&quot;的数据进行分类-聚类分析</p>
+<h4 id="意义">意义<a hidden class="anchor" aria-hidden="true" href="#意义">#</a></h4>
+<p>对数据进行降维处理</p>
+<ul>
+<li>特征提取：信用卡的信用评级和人的胖瘦无关？</li>
+<li>特征压缩(特征之间关系很强)：PCA</li>
+</ul>
+<p>降维处理可以方便可视化</p>
+<p>异常检测</p>
+<h3 id="半监督学习">半监督学习<a hidden class="anchor" aria-hidden="true" href="#半监督学习">#</a></h3>
+<ul>
+<li>
+<p>一部分数据标有&quot;标记&quot;或者&quot;答案&quot;，另一部分数据没有</p>
+</li>
+<li>
+<p>更常见：各种原因产生的标记缺失</p>
+</li>
+<li>
+<p>通常都先使用无监督学习手段对数据做处理，之后使用监督学习手段做模型的训练和预测</p>
+</li>
+</ul>
+<h3 id="增强学习">增强学习<a hidden class="anchor" aria-hidden="true" href="#增强学习">#</a></h3>
+<p>根据周围环境的情况，采取行动，根据采取行动的结果，学习行动方式</p>
+<p>行动-反馈</p>
+<p>奖赏或惩罚机制</p>
+<h2 id="4-机器学习的其他分类">4. 机器学习的其他分类<a hidden class="anchor" aria-hidden="true" href="#4-机器学习的其他分类">#</a></h2>
+<h3 id="批量学习batch-learning">批量学习(Batch Learning)<a hidden class="anchor" aria-hidden="true" href="#批量学习batch-learning">#</a></h3>
+<ul>
+<li>优点：简单</li>
+<li>问题：如何适应环境变化？</li>
+<li>解决方案：定时重新批量学习</li>
+<li>缺点：每次重新批量学习，运算量巨大；同时，在某些环境变化非常快的情况下，甚至不可能</li>
+</ul>
+<h3 id="在线学习online-learning">在线学习(Online Learning)<a hidden class="anchor" aria-hidden="true" href="#在线学习online-learning">#</a></h3>
+<p>输入样例和正确结果迭代进入机器学习算法</p>
+<ul>
+<li>优点：及时反映新的环境变化</li>
+<li>问题：新的数据带来不好的变化？</li>
+<li>解决方案：需要加强对数据进行监控</li>
+<li>其他：也适用于数据量巨大，无法完全批量学习的环境</li>
+</ul>
+<h3 id="参数学习parametric-learning">参数学习(Parametric Learning)<a hidden class="anchor" aria-hidden="true" href="#参数学习parametric-learning">#</a></h3>
+<p>e.g. 假设模型定为 $f(x) = ax + b$，那么机器学习的任务就是找到合适的 $a$ 和 $b$</p>
+<p>特点：一旦学到了参数，就不再需要原有的数据集</p>
+<h3 id="非参数学习nonparametric-learning">非参数学习(Nonparametric Learning)<a hidden class="anchor" aria-hidden="true" href="#非参数学习nonparametric-learning">#</a></h3>
+<ul>
+<li>不对模型进行过多假设</li>
+<li>非参数不代表没有参数</li>
+</ul>
 
 
   </div>
 
   <footer class="post-footer">
 <nav class="paginav">
-  <a class="prev" href="https://haventong.github.io/post/springboot%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE/">
-    <span class="title">« Prev Page</span>
-    <br>
-    <span>SpringBoot新建项目</span>
-  </a>
-  <a class="next" href="https://haventong.github.io/post/my-second-post/">
+  <a class="next" href="https://haventong.github.io/post/validation-api/">
     <span class="title">Next Page »</span>
     <br>
-    <span>My Second Post</span>
+    <span>validation-api</span>
   </a>
 </nav>
 
 
 <div class="share-buttons">
-    <a target="_blank" rel="noopener noreferrer" aria-label="share STL笔记 on twitter"
-        href="https://twitter.com/intent/tweet/?text=STL%e7%ac%94%e8%ae%b0&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fstl%25E7%25AC%2594%25E8%25AE%25B0%2f&amp;hashtags=">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Machine Learning Concept on twitter"
+        href="https://twitter.com/intent/tweet/?text=Machine%20Learning%20Concept&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fmachine-learning-concept%2f&amp;hashtags=">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share STL笔记 on linkedin"
-        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fstl%25E7%25AC%2594%25E8%25AE%25B0%2f&amp;title=STL%e7%ac%94%e8%ae%b0&amp;summary=STL%e7%ac%94%e8%ae%b0&amp;source=https%3a%2f%2fhaventong.github.io%2fpost%2fstl%25E7%25AC%2594%25E8%25AE%25B0%2f">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Machine Learning Concept on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fmachine-learning-concept%2f&amp;title=Machine%20Learning%20Concept&amp;summary=Machine%20Learning%20Concept&amp;source=https%3a%2f%2fhaventong.github.io%2fpost%2fmachine-learning-concept%2f">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share STL笔记 on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fhaventong.github.io%2fpost%2fstl%25E7%25AC%2594%25E8%25AE%25B0%2f&title=STL%e7%ac%94%e8%ae%b0">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Machine Learning Concept on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fhaventong.github.io%2fpost%2fmachine-learning-concept%2f&title=Machine%20Learning%20Concept">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share STL笔记 on facebook"
-        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhaventong.github.io%2fpost%2fstl%25E7%25AC%2594%25E8%25AE%25B0%2f">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Machine Learning Concept on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhaventong.github.io%2fpost%2fmachine-learning-concept%2f">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share STL笔记 on whatsapp"
-        href="https://api.whatsapp.com/send?text=STL%e7%ac%94%e8%ae%b0%20-%20https%3a%2f%2fhaventong.github.io%2fpost%2fstl%25E7%25AC%2594%25E8%25AE%25B0%2f">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Machine Learning Concept on whatsapp"
+        href="https://api.whatsapp.com/send?text=Machine%20Learning%20Concept%20-%20https%3a%2f%2fhaventong.github.io%2fpost%2fmachine-learning-concept%2f">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share STL笔记 on telegram"
-        href="https://telegram.me/share/url?text=STL%e7%ac%94%e8%ae%b0&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fstl%25E7%25AC%2594%25E8%25AE%25B0%2f">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Machine Learning Concept on telegram"
+        href="https://telegram.me/share/url?text=Machine%20Learning%20Concept&amp;url=https%3a%2f%2fhaventong.github.io%2fpost%2fmachine-learning-concept%2f">
         <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
             <path
                 d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
